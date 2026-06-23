@@ -1,0 +1,17 @@
+{
+  "name": "OutSearched",
+  "short_name": "OutSearched",
+  "description": "Buy-side advisory & proprietary deal flow for the lower middle market.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1B34",
+  "theme_color": "#0B1B34",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    }
+  ]
+}
