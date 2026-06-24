@@ -353,14 +353,14 @@ export function FAQList({ items }: { items: FAQItem[] }) {
 export function ConversionCTA({ compact = false }: { compact?: boolean }) {
   return (
     <Section tone="navy" className={compact ? "py-14 md:py-16" : undefined}>
-      <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end">
+      <div className="max-w-3xl">
         <SectionHeading
           eyebrow="Get Started"
           title="Find your next deal"
           body="A 30-minute strategy call. We will walk through your mandate, show how we would build the sourcing engine, and tell you whether OutSearched is the right fit."
           light
         />
-        <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Button to={BOOKING_HASH} size="large">
             Book A Strategy Call
           </Button>
