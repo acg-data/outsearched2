@@ -63,4 +63,69 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .deal-map-land {
+    fill: rgba(255, 255, 255, 0.055);
+    stroke: rgba(199, 164, 74, 0.45);
+    stroke-width: 2;
+  }
+
+  .deal-map-land-muted {
+    fill: rgba(255, 255, 255, 0.04);
+    stroke: rgba(199, 164, 74, 0.28);
+    stroke-width: 2;
+  }
+
+  .deal-map-route {
+    fill: none;
+    stroke: url("#mapGold");
+    stroke-dasharray: 18 420;
+    stroke-linecap: round;
+    stroke-width: 2.5;
+    animation: deal-route 5.8s linear infinite;
+    opacity: 0.8;
+  }
+
+  .deal-map-pulse {
+    animation: deal-pulse 2.8s ease-out infinite;
+  }
+}
+
+@keyframes deal-route {
+  0% {
+    stroke-dashoffset: 438;
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.95;
+  }
+  70% {
+    opacity: 0.95;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes deal-pulse {
+  0% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(0.45);
+  }
+  70% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deal-map-route,
+  .deal-map-pulse {
+    animation: none;
+  }
 }
