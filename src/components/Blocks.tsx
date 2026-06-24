@@ -1,5 +1,18 @@
 import { Link } from "react-router";
-import { ArrowRight, Check, ExternalLink, MapPin } from "lucide-react";
+import {
+  ArrowRight,
+  BriefcaseBusiness,
+  Building2,
+  Check,
+  ExternalLink,
+  Handshake,
+  Landmark,
+  MapPin,
+  Search,
+  Store,
+  UserRound,
+  type LucideIcon,
+} from "lucide-react";
 import { BOOKING_HASH, BOOKING_URL, VIMEO_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/Button";
@@ -190,6 +203,25 @@ function FormattedTitle({ title }: { title: string }) {
   return <>{title}</>;
 }
 
+export function BuyerIcon({ title, className }: { title: string; className?: string }) {
+  const iconMap: Record<string, LucideIcon> = {
+    "LMM Private Equity": BriefcaseBusiness,
+    "Independent Sponsors": Handshake,
+    "Search Funds": Search,
+    "Family Offices": Landmark,
+    "Corporate Development": Building2,
+    "Current Business Owners": Store,
+    "Individual Buyers": UserRound,
+  };
+  const Icon = iconMap[title] ?? BriefcaseBusiness;
+
+  return (
+    <span className={cn("grid size-10 place-items-center rounded-full border border-gold/45 bg-gold/10 text-goldDark", className)}>
+      <Icon className="size-5" aria-hidden="true" />
+    </span>
+  );
+}
+
 export function StatsGrid({ stats, light = false }: { stats: Stat[]; light?: boolean }) {
   return (
     <div className="grid gap-4 sm:grid-cols-3">
@@ -248,7 +280,8 @@ export function LinkCardGrid({ cards }: { cards: ContentCard[] }) {
           to={card.label ?? "/"}
           className="group rounded-lg border border-navy/10 bg-white p-6 transition hover:-translate-y-1 hover:border-gold/60 hover:shadow-lg"
         >
-          <h3 className="font-heading text-2xl leading-tight text-navy">
+          <BuyerIcon title={card.title} />
+          <h3 className="mt-5 font-heading text-2xl leading-tight text-navy">
             <FormattedTitle title={card.title} />
           </h3>
           <p className="mt-4 text-sm leading-7 text-navy/62">{card.body}</p>

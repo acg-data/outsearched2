@@ -6,6 +6,7 @@ import {
   Section,
   SectionHeading,
   StatsGrid,
+  BuyerIcon,
 } from "@/components/Blocks";
 import { Check } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
@@ -70,8 +71,7 @@ const engagementModels = [
     bullets: [
       "Sourcing tools and data",
       "Mandate definition",
-      "Negotiations and structuring",
-      "Strategy and implementation",
+      "Negotiations, structuring, and implementation",
       "Growth, integration, AI, and sourcing advisory",
     ],
   },
@@ -165,7 +165,8 @@ export default function HomePage() {
         <div className="grid gap-5 md:grid-cols-3">
           {buyerHubCards.slice(0, 6).map(({ title, body }) => (
             <article key={title} className="rounded-lg border border-navy/10 bg-white p-6">
-              <h3 className="font-heading text-2xl leading-tight text-navy">{title}</h3>
+              <BuyerIcon title={title} />
+              <h3 className="mt-5 font-heading text-2xl leading-tight text-navy">{title}</h3>
               <p className="mt-4 text-sm leading-7 text-navy/62 md:text-base">{body}</p>
             </article>
           ))}
