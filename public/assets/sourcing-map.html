@@ -178,18 +178,6 @@
   .stat.done .sheen{animation:sheen .9s ease-out}
   @keyframes sheen{0%{left:-40%;opacity:1}100%{left:120%;opacity:0}}
 
-  .foot{margin-top:clamp(26px,3.4vw,40px);display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap}
-  .note{font-size:11.5px;color:var(--steel-dim);letter-spacing:.04em}
-  .replay{
-    appearance:none;border:1px solid var(--line);background:rgba(231,182,92,.05);color:var(--gold);
-    font-family:"DM Sans",sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-    padding:9px 16px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
-    transition:background .2s ease,border-color .2s ease,transform .2s ease;
-  }
-  .replay:hover{background:rgba(231,182,92,.12);border-color:rgba(231,182,92,.4)}
-  .replay:active{transform:translateY(1px)}
-  .replay svg{width:13px;height:13px;fill:none;stroke:var(--gold);stroke-width:2}
-
   @media (max-width:900px){
     .panel{grid-template-columns:1fr}
     .stats{flex-direction:row;flex-wrap:wrap}
@@ -265,10 +253,6 @@
       </div>
     </section>
 
-    <div class="foot reveal" style="--d:1.5s">
-      <span class="note">Representative deal signals &middot; sectors shown, names withheld</span>
-      <button class="replay" id="replay" type="button"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg>Replay</button>
-    </div>
   </main>
 
 <script>
@@ -383,8 +367,6 @@ function run() {
   // ambient connecting arcs
   after(4600, () => { drawArc(); arcTimer = setInterval(drawArc, 2900); });
 }
-
-document.getElementById("replay").addEventListener("click", run);
 
 // kick off after fonts settle / next frame
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => requestAnimationFrame(run));

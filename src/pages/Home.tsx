@@ -81,7 +81,7 @@ function SourcingMapEmbed() {
       title="2025 Sourcing Map"
       src="/assets/sourcing-map.html"
       sandbox="allow-scripts allow-same-origin"
-      className="block h-[980px] w-full overflow-hidden rounded-lg border border-white/10 bg-navy sm:h-[900px] md:h-[820px] lg:h-[760px] xl:h-[720px]"
+      className="block h-[920px] w-full overflow-hidden rounded-lg border border-white/10 bg-navy sm:h-[850px] md:h-[770px] lg:h-[710px] xl:h-[670px]"
       loading="eager"
     />
   );
