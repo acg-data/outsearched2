@@ -675,12 +675,101 @@ export const servicePages: ServicePageContent[] = [
     fitTitle: "Built for buyers who need proprietary flow without institutional headcount",
     fit: ["Independent sponsors", "PE firms testing a thesis", "Family offices that prefer discretion", "Corporate teams with temporary capacity gaps"],
     comparison: [
-      { title: "Versus databases", body: "We run the work, not just the list." },
-      { title: "Versus internal BD", body: "Faster launch and lower fixed cost for teams that do not need a named seat." },
+      {
+        title: "Versus databases",
+        body: "We run the entire sourcing motion — list building, enrichment, outreach, follow-up, and qualification — not just the list.",
+      },
+      {
+        title: "Versus internal BD",
+        body: "Faster launch and lower fixed cost. Choose Fractional BD when you want proprietary output without a dedicated seat under your brand.",
+      },
+      {
+        title: "Versus banker flow",
+        body: "Direct-to-owner outreach reaches targets before a broad sell-side process exists, so conversations start earlier and with less competition.",
+      },
     ],
+    problem: {
+      eyebrow: "The Problem",
+      title: "Proprietary deal flow requires daily execution, not a database subscription",
+      body: "Most buyers know they need off-market origination. The hard part is that a real sourcing motion requires consistent execution, managed messaging, and qualified follow-up — not just a list.",
+      points: [
+        {
+          title: "Lists do not create conversations",
+          body: "A database gives you names. Getting an owner to respond requires a message, a cadence, follow-up, and a reason for the owner to engage.",
+        },
+        {
+          title: "Internal capacity is limited",
+          body: "Investment teams are already managing diligence, portfolio, LP relationships, and deal execution. Outbound sourcing competes with all of it.",
+        },
+        {
+          title: "Headcount adds fixed cost and ramp",
+          body: "Hiring an internal BD rep takes months to recruit, train, and tool. Fractional BD is live immediately and scales with the mandate.",
+        },
+      ],
+    },
+    process: {
+      eyebrow: "How It Works",
+      title: "Scaled origination, run by our team, on your mandate",
+      intro: "OutSearched builds the universe, runs multichannel outreach, qualifies every responsive owner, and reports pipeline on a weekly cadence — all under our brand.",
+      steps: [
+        {
+          title: "Mandate definition",
+          body: "We define the buy-box with you: industry, size, geography, ownership structure, and what a qualified conversation looks like.",
+        },
+        {
+          title: "Target universe build",
+          body: "We identify and enrich the companies and owners that fit the mandate — not a generic database export.",
+        },
+        {
+          title: "Multichannel outreach",
+          body: "Our team runs direct-to-owner campaigns under the OutSearched brand at a pace no single internal rep can sustain.",
+        },
+        {
+          title: "Owner qualification",
+          body: "Every responsive owner is screened for mandate fit before a conversation reaches your principals.",
+        },
+        {
+          title: "Weekly reporting",
+          body: "You receive pipeline activity, outreach volume, owner response data, and qualified opportunities on a structured weekly cadence.",
+        },
+        {
+          title: "Warm handoff",
+          body: "Qualified conversations are handed to your team with context on the owner, the company, and the conversation so far.",
+        },
+      ],
+    },
+    testimonial: {
+      title: "Quick to First Deal",
+      quote: "They were professional, fast, and I had a deal nearing LOI already with less than 60 days of outbound.",
+      name: "CJ Jacobs",
+      role: "Independent Sponsor",
+    },
     faq: [
-      { question: "How quickly can outreach start?", answer: "The target universe and messaging usually begin immediately after mandate definition." },
-      { question: "Does OutSearched speak directly with owners?", answer: "Yes. We qualify owner interest before bringing opportunities to you." },
+      {
+        question: "What is fractional business development?",
+        answer:
+          "Fractional Business Development is OutSearched's shared origination team running proprietary direct-to-owner outreach for a buyer under our brand. It is designed for buyers who want institutional-grade proprietary sourcing without hiring, training, and managing an internal BD team.",
+      },
+      {
+        question: "How quickly can outreach start?",
+        answer:
+          "The target universe and messaging usually begin taking shape immediately after mandate definition. There is no recruiting ramp or tooling buildout — the engine is already running.",
+      },
+      {
+        question: "Does OutSearched speak directly with owners?",
+        answer:
+          "Yes. We qualify owner interest and fit before bringing an opportunity to you. Your team gets conversations that have already been screened against the mandate.",
+      },
+      {
+        question: "How is fractional different from internal BD?",
+        answer:
+          "Fractional BD is run by our shared team under our brand. Internal BD is a dedicated rep operating under your brand. Fractional BD is better when you want proprietary origination output without a named seat representing your firm.",
+      },
+      {
+        question: "Do you charge a retainer?",
+        answer:
+          "Yes. Fractional BD is retainer-based because it requires full-time staff, data, tooling, outreach infrastructure, and weekly management. The retainer is structured to be significantly lower than carrying an equivalent internal function.",
+      },
     ],
   },
   {
@@ -708,12 +797,101 @@ export const servicePages: ServicePageContent[] = [
     fitTitle: "Built for buyers who run their own origination and want sharper architecture",
     fit: ["Existing BD teams", "Investment teams entering new sectors", "Buyers with a live opportunity needing tactical support"],
     comparison: [
-      { title: "Advisory", body: "Best when you want sharper strategy but keep execution in-house." },
-      { title: "Done-for-you sourcing", body: "Best when you want OutSearched to run the daily outbound engine." },
+      {
+        title: "Advisory vs. done-for-you sourcing",
+        body: "Advisory is the right fit when you run origination internally but want sharper architecture. Choose Internal or Fractional BD when you want OutSearched to run the daily outbound engine.",
+      },
+      {
+        title: "Advisory vs. consulting generalists",
+        body: "OutSearched advises on buy-side deal sourcing specifically — mandate design, outreach architecture, qualification, and the path to LOI — not broad strategy or operations.",
+      },
+      {
+        title: "Project or ongoing",
+        body: "Advisory can be scoped as a defined project (mandate definition, systems review, negotiation support) or as an ongoing relationship alongside a live sourcing program.",
+      },
     ],
+    problem: {
+      eyebrow: "The Problem",
+      title: "Most buyers have capacity. The gap is in the architecture",
+      body: "Teams that already have internal BD or investment staff often struggle not with effort but with how the sourcing motion is designed — the mandate, the messaging, the qualification standard, and the handoff.",
+      points: [
+        {
+          title: "The mandate is too broad",
+          body: "A vague buy-box produces a vague target list and weak outreach. Owners can tell when a buyer has not done the work to define what they actually want.",
+        },
+        {
+          title: "The sourcing engine is not built to scale",
+          body: "Outreach that depends on one person's relationships or a single channel is fragile. The right architecture runs across data, channels, cadence, and qualification in parallel.",
+        },
+        {
+          title: "The path from conversation to LOI is unclear",
+          body: "Qualified conversations stall when the buyer does not have a clear process for advancing from initial owner interest through diligence and structure.",
+        },
+      ],
+    },
+    process: {
+      eyebrow: "How It Works",
+      title: "In-the-market judgment at every stage of the deal",
+      intro: "Advisory engagements start where the buyer is stuck — mandate definition, sourcing architecture, live negotiation — and move forward from there.",
+      steps: [
+        {
+          title: "Diagnostic",
+          body: "We review the current mandate, sourcing motion, outreach approach, CRM, and deal history to understand where the constraint actually is.",
+        },
+        {
+          title: "Mandate sharpening",
+          body: "We tighten the buy-box across industry, size, geography, ownership, and what a qualified opportunity means for this specific buyer.",
+        },
+        {
+          title: "Sourcing architecture",
+          body: "We design or improve how the target universe, messaging, channels, cadence, and qualification logic work together.",
+        },
+        {
+          title: "Outreach and qualification review",
+          body: "We review active campaigns, messaging, owner responses, and qualification decisions with the team on a structured cadence.",
+        },
+        {
+          title: "Negotiation support",
+          body: "We advise through owner conversations, deal structuring, LOI drafting, and the process decisions that shape how a buyer is perceived.",
+        },
+        {
+          title: "Systems and handoff",
+          body: "Where needed, we design the data, CRM, and workflow infrastructure that makes the sourcing motion repeatable without us.",
+        },
+      ],
+    },
+    testimonial: {
+      title: "No Stone Unturned",
+      quote: "Within three weeks, we were in active conversations with attractive acquisition targets. The speed, quality, and professionalism of the process stood out.",
+      name: "John M.",
+      role: "Individual Buyer",
+    },
     faq: [
-      { question: "Can advisory be project-based?", answer: "Yes. Scope depends on whether the need is strategy, process, negotiation, or systems." },
-      { question: "Can advisory turn into sourcing?", answer: "Yes. Advisory often clarifies whether done-for-you origination would help." },
+      {
+        question: "What is buy-side M&A advisory?",
+        answer:
+          "Buy-side advisory is strategic guidance for an acquirer rather than representation of a seller. At OutSearched it covers thesis development, target identification, direct-to-owner outreach strategy, qualification, negotiation support, and deal execution guidance.",
+      },
+      {
+        question: "Can advisory be project-based?",
+        answer:
+          "Yes. Advisory can be scoped as a defined project — mandate definition, sourcing system review, negotiation support on a live deal — or structured as an ongoing relationship alongside a live sourcing program.",
+      },
+      {
+        question: "Can advisory turn into done-for-you sourcing?",
+        answer:
+          "Yes. Advisory often clarifies whether Internal BD or Fractional BD would help. We can transition into running the outbound engine directly once the mandate and architecture are in place.",
+      },
+      {
+        question: "Do you help with negotiation and LOI?",
+        answer:
+          "Yes. OutSearched can advise through negotiation, structuring, and the path to a letter of intent — including deal terms, seller conversations, structure, and the process decisions that determine how the buyer is perceived.",
+      },
+      {
+        question: "Do you work with buyers who already have internal BD?",
+        answer:
+          "Yes. Advisory is specifically designed for teams that run origination internally but want sharper mandate definition, outreach architecture, qualification standards, or deal execution support.",
+      },
     ],
   },
   {
@@ -741,12 +919,101 @@ export const servicePages: ServicePageContent[] = [
     fitTitle: "Built for buyers whose sourcing is bottlenecked by data and manual work",
     fit: ["Teams with messy CRM data", "Buyers with repeated research workflows", "Investment teams that need clearer target context"],
     comparison: [
-      { title: "Versus generic AI tools", body: "A custom implementation maps to your data, workflows, and acquisition criteria." },
-      { title: "Versus more headcount", body: "Automation removes repetitive work so people focus on owner conversations and judgment." },
+      {
+        title: "Versus generic AI tools",
+        body: "Off-the-shelf AI tools are built for general use. A custom implementation maps to your specific data, target criteria, CRM structure, and acquisition workflows.",
+      },
+      {
+        title: "Versus more headcount",
+        body: "Automation removes the research, list cleanup, and data-wrangling work that consumes sourcing capacity — so people focus on owner conversations and judgment calls.",
+      },
+      {
+        title: "Versus doing nothing",
+        body: "Scattered data, duplicated research, and disconnected tools are a tax on every decision your team makes. The longer it compounds, the harder it is to fix.",
+      },
     ],
+    problem: {
+      eyebrow: "The Problem",
+      title: "Most sourcing teams are bottlenecked by data, not effort",
+      body: "The research is duplicated. The CRM is a mess. The target lists live in three different spreadsheets. The team is working hard — but the infrastructure is not working for them.",
+      points: [
+        {
+          title: "Data is everywhere and nowhere",
+          body: "Outreach history, target attributes, CRM notes, diligence materials, and market maps live in different tools with no single source of truth.",
+        },
+        {
+          title: "Manual work dominates",
+          body: "List cleaning, company research, owner enrichment, and pipeline reporting consume time that should go to owner conversations and deal judgment.",
+        },
+        {
+          title: "Generic tools do not fit buy-side workflows",
+          body: "AI tools built for general business use do not understand acquisition criteria, owner qualification logic, or the deal sourcing process.",
+        },
+      ],
+    },
+    process: {
+      eyebrow: "How It Works",
+      title: "Custom systems built around how your team actually sources",
+      intro: "AI Implementation starts with understanding the real workflow — then builds the data foundation, automation, and decision context that makes it faster and more repeatable.",
+      steps: [
+        {
+          title: "Workflow audit",
+          body: "We map how your team currently sources, researches, qualifies, and advances deals — finding where time is lost and where data is scattered.",
+        },
+        {
+          title: "Data foundation",
+          body: "We clean, connect, and structure the source data — CRM records, target lists, outreach history, diligence notes — so it can support real workflows.",
+        },
+        {
+          title: "Automation design",
+          body: "We design the automation layer: what gets pulled automatically, what gets flagged, and what gets routed to a person versus handled by a system.",
+        },
+        {
+          title: "Build and integration",
+          body: "We build the system against your existing tools and data sources — no rip-and-replace, no forced platform migration.",
+        },
+        {
+          title: "Decision context",
+          body: "We surface the mandate fit, owner history, outreach context, and market data your team needs before making a call or sending a message.",
+        },
+        {
+          title: "Handoff and training",
+          body: "We hand the system to your team with documentation and training, and remain available as workflows evolve.",
+        },
+      ],
+    },
+    testimonial: {
+      title: "An Essential Resource for Our Firm",
+      quote: "The pipeline they helped us develop has directly translated into meaningful conversations with quality targets.",
+      name: "Danny Ilani",
+      role: "Independent Sponsor",
+    },
     faq: [
-      { question: "Is this a software subscription?", answer: "No. It is implementation work scoped around your data and workflow needs." },
-      { question: "Can this integrate with an existing CRM?", answer: "Yes, subject to the systems and access available during scoping." },
+      {
+        question: "What is AI implementation for deal sourcing?",
+        answer:
+          "AI implementation turns scattered sourcing data, CRM notes, outreach history, target attributes, and decision workflows into infrastructure your team can actually use. It is not a software subscription — it is custom implementation work scoped around your real process and data.",
+      },
+      {
+        question: "Is this a software subscription?",
+        answer:
+          "No. AI Implementation is scoped implementation work — we build systems around your data, workflows, and acquisition criteria. You own what we build.",
+      },
+      {
+        question: "Can this integrate with an existing CRM?",
+        answer:
+          "Yes. We design around the systems you already use, subject to the tools and data access available during scoping. We do not force a platform migration.",
+      },
+      {
+        question: "How can AI help private equity deal sourcing?",
+        answer:
+          "AI can help by organizing data, surfacing patterns, improving workflows, speeding research, and giving teams better context before decisions. The value comes from connecting real sourcing data, CRM history, mandate criteria, market maps, notes, and qualification workflows.",
+      },
+      {
+        question: "Do you help clean up messy CRM and sourcing data?",
+        answer:
+          "Yes. Data cleanup and restructuring is often the first step. AI Implementation can turn scattered information into a cleaner source of truth that supports real acquisition workflows.",
+      },
     ],
   },
 ];
