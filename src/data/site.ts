@@ -47,6 +47,13 @@ export interface BuyerPageContent {
   faq: FAQItem[];
 }
 
+export interface ServiceTestimonial {
+  quote: string;
+  name: string;
+  role: string;
+  title?: string;
+}
+
 export interface ServicePageContent {
   slug: string;
   path: string;
@@ -62,6 +69,21 @@ export interface ServicePageContent {
   fit: string[];
   comparison: ContentCard[];
   faq: FAQItem[];
+  // Optional rich sections — the template renders each only when present, so pages can be enriched incrementally.
+  stats?: Stat[];
+  problem?: {
+    eyebrow?: string;
+    title: string;
+    body?: string;
+    points: ContentCard[];
+  };
+  process?: {
+    eyebrow?: string;
+    title: string;
+    intro?: string;
+    steps: ContentCard[];
+  };
+  testimonial?: ServiceTestimonial;
 }
 
 export const homeMeta: PageMeta = {
@@ -533,12 +555,99 @@ export const servicePages: ServicePageContent[] = [
     fitTitle: "Built for firms that want a named BD seat without building one",
     fit: ["PE firms that want outreach under their brand", "Family offices where buyer identity matters", "Sponsors running named-account programs"],
     comparison: [
-      { title: "Versus internal hire", body: "No recruiting ramp, tool buildout, or single-person fragility." },
-      { title: "Versus banker flow", body: "Direct owner coverage starts before a broad sell-side process." },
+      {
+        title: "Versus an internal hire",
+        body: "No recruiting ramp, no tool buildout, and no single-person fragility. The seat is staffed, managed, and backstopped from day one.",
+      },
+      {
+        title: "Versus banker flow",
+        body: "Direct-to-owner coverage starts before a broad sell-side process, so you reach owners while the conversation is still proprietary.",
+      },
+      {
+        title: "Versus Fractional BD",
+        body: "Internal BD is dedicated and runs under your brand. Choose it when you want a named seat representing your firm rather than shared coverage.",
+      },
     ],
+    problem: {
+      eyebrow: "The Problem",
+      title: "Standing up an internal BD seat is harder than it looks",
+      body: "Most firms know they need dedicated origination. Building it in-house means recruiting, tooling, training, and managing a function that stalls the moment one person leaves.",
+      points: [
+        {
+          title: "Recruiting and ramp",
+          body: "A capable BD hire takes months to find, onboard, and make productive, and the sourcing clock is running the entire time.",
+        },
+        {
+          title: "Tooling and data overhead",
+          body: "Lists, enrichment, sequencing, CRM, and reporting all have to be bought, wired together, and maintained before the first owner is ever contacted.",
+        },
+        {
+          title: "Single-person fragility",
+          body: "When one rep owns the cadence and the relationships, a departure takes the institutional memory and the pipeline with it.",
+        },
+      ],
+    },
+    process: {
+      eyebrow: "How It Works",
+      title: "A managed operating rhythm from day one",
+      intro: "OutSearched stands up the seat, runs it to a weekly cadence, and reports against your mandate, branded as your firm throughout.",
+      steps: [
+        {
+          title: "Mandate definition",
+          body: "We translate your buy-box across industry, size, geography, ownership, and strategic fit into a precise target standard.",
+        },
+        {
+          title: "Target universe",
+          body: "We build and enrich the company and owner universe that fits the mandate, not a generic database pull.",
+        },
+        {
+          title: "Branded outreach",
+          body: "A dedicated rep runs multichannel, direct-to-owner outreach under your firm's name on a consistent cadence.",
+        },
+        {
+          title: "Qualification",
+          body: "Every responsive owner is screened against the mandate before a conversation reaches your team.",
+        },
+        {
+          title: "Reporting and QA",
+          body: "Weekly pipeline reviews, activity reporting, and quality control keep the engine accountable and visible.",
+        },
+        {
+          title: "Handoff and support",
+          body: "Qualified conversations move to your principals, with continued support through the path toward LOI.",
+        },
+      ],
+    },
+    testimonial: {
+      title: "An Essential Resource for Our Firm",
+      quote: "The pipeline they helped us develop has directly translated into meaningful conversations with quality targets.",
+      name: "Danny Ilani",
+      role: "Independent Sponsor",
+    },
     faq: [
-      { question: "Who manages the rep?", answer: "OutSearched manages the rep, operating cadence, data, and reporting." },
-      { question: "Can the rep use our email domain?", answer: "Yes, when the engagement is structured as branded internal BD." },
+      {
+        question: "What exactly is internal business development?",
+        answer:
+          "Internal business development is a fully dedicated sourcing function that operates under the buyer's brand. A dedicated rep is committed to your firm alone and covers proprietary direct-to-owner outreach plus broker or banker conversations tied to your mandate.",
+      },
+      {
+        question: "Who manages the rep?",
+        answer: "OutSearched manages the rep, operating cadence, data, tooling, quality control, and reporting. You get the output and visibility without managing the function day to day.",
+      },
+      {
+        question: "Can the rep use our email domain?",
+        answer: "Yes. When the engagement is structured as branded internal BD, the rep can operate on your email domain and front owner conversations as your team.",
+      },
+      {
+        question: "How is this different from fractional business development?",
+        answer:
+          "Internal BD is dedicated and runs under your brand, while Fractional BD is run by our shared team under our brand. Internal BD is the better fit when you want a named seat representing your firm rather than confidential coverage.",
+      },
+      {
+        question: "Do you charge a retainer?",
+        answer:
+          "Yes. A dedicated seat requires full-time staffing, data, tooling, and management, so internal BD is retainer-based, designed to come in well below the cost of building and carrying the same function internally.",
+      },
     ],
   },
   {

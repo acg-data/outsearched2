@@ -16,7 +16,7 @@ import {
 import { BOOKING_HASH, BOOKING_URL, VIMEO_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/Button";
-import type { ContentCard, FAQItem, Stat } from "@/data/site";
+import type { ContentCard, FAQItem, ServiceTestimonial, Stat } from "@/data/site";
 import { useState, type ReactNode } from "react";
 
 interface SectionProps {
@@ -331,6 +331,38 @@ export function CheckList({ items, light = false }: { items: string[]; light?: b
         </li>
       ))}
     </ul>
+  );
+}
+
+export function ProcessSteps({ steps, light = false }: { steps: ContentCard[]; light?: boolean }) {
+  return (
+    <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {steps.map((step, index) => (
+        <li key={step.title} className={cn("rounded-lg border p-6", light ? "border-white/10 bg-white/6" : "border-navy/10 bg-white")}>
+          <span className="grid size-10 place-items-center rounded-full border border-gold/70 font-heading text-lg leading-none text-gold">
+            {index + 1}
+          </span>
+          <h3 className={cn("mt-5 font-heading text-2xl leading-tight", light ? "text-ivory" : "text-navy")}>{step.title}</h3>
+          <p className={cn("mt-3 text-sm leading-7 md:text-base", light ? "text-ivory/64" : "text-navy/62")}>{step.body}</p>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+export function QuoteFeature({ testimonial }: { testimonial: ServiceTestimonial }) {
+  return (
+    <figure className="rounded-lg border border-gold/35 bg-white/6 p-7 md:p-9">
+      {testimonial.title ? <p className="label mb-4 text-gold">{testimonial.title}</p> : null}
+      <blockquote className="font-heading text-2xl leading-snug text-ivory md:text-3xl">"{testimonial.quote}"</blockquote>
+      <figcaption className="mt-7 flex items-center gap-3">
+        <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+        <span>
+          <span className="block font-bold text-ivory">{testimonial.name}</span>
+          <span className="block text-sm text-ivory/60">{testimonial.role}</span>
+        </span>
+      </figcaption>
+    </figure>
   );
 }
 

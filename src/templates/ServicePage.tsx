@@ -1,7 +1,18 @@
 import { Navigate, Link, useParams } from "react-router";
 import { servicePages, primaryStats, servicesMeta } from "@/data/site";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { CardGrid, CheckList, ConversionCTA, FAQList, PageHero, ProofFeature, Section, SectionHeading, StatsGrid } from "@/components/Blocks";
+import {
+  CardGrid,
+  CheckList,
+  ConversionCTA,
+  FAQList,
+  PageHero,
+  ProcessSteps,
+  QuoteFeature,
+  Section,
+  SectionHeading,
+  StatsGrid,
+} from "@/components/Blocks";
 
 export default function ServicePage() {
   const { slug } = useParams();
@@ -13,34 +24,71 @@ export default function ServicePage() {
     return <Navigate to="/services" replace />;
   }
 
-  const proofItems = [page.fit[0], page.comparison[0]?.title, page.comparison[1]?.title].filter((item): item is string => Boolean(item));
-
   return (
     <>
       <PageHero eyebrow={page.eyebrow} title={page.h1} lead={page.lead} compact />
 
-      <Section tone="ivory">
+      <Section tone="parchment" className="py-12 md:py-16">
+        <StatsGrid stats={page.stats ?? primaryStats} />
+      </Section>
+
+      {page.problem ? (
+        <Section tone="ivory">
+          <SectionHeading
+            eyebrow={page.problem.eyebrow ?? "The Problem"}
+            title={page.problem.title}
+            body={page.problem.body}
+            align="center"
+            className="mb-12"
+          />
+          <CardGrid cards={page.problem.points} columns={3} />
+        </Section>
+      ) : null}
+
+      <Section tone="white">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <SectionHeading eyebrow="What It Is" title={page.definitionTitle} body={page.definition} />
           <CardGrid cards={page.operatingModel} />
         </div>
       </Section>
 
-      <Section tone="navy">
+      {page.process ? (
+        <Section tone="navy">
+          <SectionHeading
+            eyebrow={page.process.eyebrow ?? "How It Works"}
+            title={page.process.title}
+            body={page.process.intro}
+            align="center"
+            light
+            className="mb-12"
+          />
+          <ProcessSteps steps={page.process.steps} light />
+        </Section>
+      ) : null}
+
+      <Section tone="parchment">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div>
-            <SectionHeading eyebrow="Best Fit" title={page.fitTitle} body="The engagement model should match the buyer's capacity, brand posture, and need for control." light />
+            <SectionHeading
+              eyebrow="Best Fit"
+              title={page.fitTitle}
+              body="The engagement model should match the buyer's capacity, brand posture, and need for control."
+            />
             <div className="mt-8">
-              <CheckList items={page.fit} light />
+              <CheckList items={page.fit} />
             </div>
           </div>
-          <CardGrid cards={page.comparison} columns={2} light />
+          <CardGrid cards={page.comparison} columns={page.comparison.length >= 3 ? 3 : 2} />
         </div>
       </Section>
 
-      <Section tone="parchment">
+      <Section tone="white">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <SectionHeading eyebrow="How It Compares" title="Choose the model that fits how you want to operate" body="Internal BD, Fractional BD, Advisory, and AI Implementation are different ways to solve capacity, control, and infrastructure constraints." />
+          <SectionHeading
+            eyebrow="How It Compares"
+            title="Choose the model that fits how you want to operate"
+            body="Internal BD, Fractional BD, Advisory, and AI Implementation are different ways to solve capacity, control, and infrastructure constraints."
+          />
           <div className="grid gap-3">
             {servicePages
               .filter((service) => service.slug !== page.slug)
@@ -54,19 +102,19 @@ export default function ServicePage() {
         </div>
       </Section>
 
-      <Section tone="white">
-        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <ProofFeature
-            eyebrow="Operating Signal"
-            title={`${page.navLabel} in practice`}
-            body={page.definition}
-            metric={page.operatingModel[0].title}
-            metricLabel="Core lever"
-            items={proofItems}
-          />
-          <StatsGrid stats={primaryStats} />
-        </div>
-      </Section>
+      {page.testimonial ? (
+        <Section tone="navy">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <SectionHeading
+              eyebrow="Proof"
+              title={`${page.navLabel} in the buyer's words`}
+              body="The measure of the model is whether it produces qualified owner conversations worth a principal's time."
+              light
+            />
+            <QuoteFeature testimonial={page.testimonial} />
+          </div>
+        </Section>
+      ) : null}
 
       <Section tone="ivory">
         <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
