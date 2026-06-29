@@ -47,21 +47,48 @@ export interface BuyerPageContent {
   faq: FAQItem[];
 }
 
+export interface ServiceFeatureCard {
+  icon: string;
+  title: string;
+  body: string;
+}
+
+export interface ServiceComparison {
+  title: string;
+  items: string[];
+}
+
 export interface ServicePageContent {
   slug: string;
   path: string;
   navLabel: string;
   meta: PageMeta;
   eyebrow: string;
-  h1: string;
+  heroTitle: string;
+  heroGoldLine: string;
   lead: string;
-  definitionTitle: string;
-  definition: string;
-  operatingModel: ContentCard[];
-  fitTitle: string;
-  fit: string[];
-  comparison: ContentCard[];
+  whatWeDoHeading: string;
+  whatWeDoBody: string;
+  featureCards: ServiceFeatureCard[];
+  builtForHeading: string;
+  builtForBody: string;
+  builtForChecklist: string[];
+  vsLeft: ServiceComparison;
+  vsRight: ServiceComparison;
+  chooseModelHeading: string;
+  provenImpactHeading: string;
+  provenImpactBody: string;
+  serviceStats: Stat[];
+  setupTitle: string;
+  setup: string[];
+  setupQuote: string;
+  proofImageUrl: string;
   faq: FAQItem[];
+  ctaEyebrow: string;
+  ctaHeading: string;
+  ctaBody: string;
+  heroImageUrl: string;
+  ctaImageUrl: string;
 }
 
 export const homeMeta: PageMeta = {
@@ -518,28 +545,68 @@ export const servicePages: ServicePageContent[] = [
       description:
         "OutSearched embeds a trained, managed BD rep inside your firm, branded as you, running mandate-specific outreach to grow your proprietary and brokered pipeline.",
     },
-    eyebrow: "Services / Internal Business Development",
-    h1: "Your business development rep, under your brand",
-    lead:
-      "One dedicated BD rep committed to your firm alone, covering proprietary and banker conversations tied to your mandate.",
-    definitionTitle: "Internal business development, defined for dealmakers",
-    definition:
-      "Internal BD is a fully dedicated sourcing function that runs under your brand while OutSearched manages the rep, tools, target universe, outreach cadence, and reporting.",
-    operatingModel: [
-      { title: "Dedicated seat", body: "A trained rep works only for your firm and fronts every owner conversation as your team." },
-      { title: "Managed engine", body: "OutSearched handles hiring, training, outreach systems, data, weekly management, and QA." },
-      { title: "Full channel coverage", body: "The seat can support proprietary owner outreach plus broker and banker coverage." },
+    eyebrow: "Internal Business Development",
+    heroTitle: "An internal BD extension of your team, under your brand.",
+    heroGoldLine: "extension of your team,",
+    lead: "We embed as your Internal Business Development rep—executing outreach, generating qualified meetings, and building your pipeline.",
+    whatWeDoHeading: "We operate as your internal resource—focused on results.",
+    whatWeDoBody:
+      "We embed with your firm as an internal resource focused on your growth. We do the outbound, build the pipeline, and create qualified opportunities—under your brand.",
+    featureCards: [
+      { icon: "UserRound", title: "Dedicated seat", body: "A full-time BD rep dedicated to your firm, your goals, your pipeline." },
+      { icon: "BarChart2", title: "Managed pipeline", body: "Outreach, follow-up, and tracking—so your calendar stays full where they are." },
+      { icon: "Globe", title: "Full-channel coverage", body: "Email, LinkedIn, calls, events, and more. We meet prospects where they are." },
+      { icon: "ShieldCheck", title: "You stay in control", body: "We operate under your brand, with your messaging, and your standards." },
     ],
-    fitTitle: "Built for firms that want a named BD seat without building one",
-    fit: ["PE firms that want outreach under their brand", "Family offices where buyer identity matters", "Sponsors running named-account programs"],
-    comparison: [
-      { title: "Versus internal hire", body: "No recruiting ramp, tool buildout, or single-person fragility." },
-      { title: "Versus banker flow", body: "Direct owner coverage starts before a broad sell-side process." },
+    builtForHeading: "Built for firms that want a named BD seat without building one.",
+    builtForBody: "We integrate seamlessly with your team, tools, and process.",
+    builtForChecklist: [
+      "Hit the market faster without the hire",
+      "Scale your outreach and stay consistent",
+      "Focus your team on high-value meetings",
+      "Improve win rates with a stronger funnel",
     ],
+    vsLeft: {
+      title: "Versus Internal Hire",
+      items: ["No recruiting delays or HR lift", "Lower cost, more flexibility", "Immediate impact", "No long-term overhead"],
+    },
+    vsRight: {
+      title: "Versus Agencies",
+      items: ["We work under your brand", "Strategic, not just tactical", "Aligned with your goals", "Built for long-term wins"],
+    },
+    chooseModelHeading: "Flexible engagement. Real results. Your choice.",
+    provenImpactHeading: "Real impact. Real results.",
+    provenImpactBody: "We help dealmakers grow their pipeline, their brand, and their bottom line.",
+    serviceStats: [
+      { value: "$500M+", label: "Pipeline generated", detail: "Across multiple client engagements over the past 24 months." },
+      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days." },
+      { value: "+60", label: "Active BD campaigns", detail: "Multi-channel outreach that fills your funnel consistently." },
+    ],
+    setupTitle: "Typical Setup",
+    setup: ["Works like an internal team member", "Follows your process", "Drives your results"],
+    setupQuote: "Your team. Our expertise. Shared success.",
+    proofImageUrl:
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80",
     faq: [
-      { question: "Who manages the rep?", answer: "OutSearched manages the rep, operating cadence, data, and reporting." },
-      { question: "Can the rep use our email domain?", answer: "Yes, when the engagement is structured as branded internal BD." },
+      {
+        question: "Who manages the rep?",
+        answer:
+          "OutSearched manages the rep day-to-day, including hiring, training, outreach cadence, reporting, and performance. You stay focused on deals while we run the sourcing engine.",
+      },
+      {
+        question: "Can the rep use our email domain?",
+        answer:
+          "Yes. When the engagement is structured as Internal BD, the rep can operate under your domain, your signature, and your brand so every touchpoint looks like your team.",
+      },
     ],
+    ctaEyebrow: "Ready to Grow?",
+    ctaHeading: "Let's build your pipeline together.",
+    ctaBody:
+      "A stronger pipeline starts here. We'll build your outreach engine so you can focus on what you do best—closing deals and leading your firm.",
+    heroImageUrl:
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+    ctaImageUrl:
+      "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=900&q=80",
   },
   {
     slug: "fractional-business-development",
@@ -551,28 +618,83 @@ export const servicePages: ServicePageContent[] = [
       description:
         "OutSearched runs scaled multichannel proprietary outbound under our brand for PE firms, growing deal flow without internal BD headcount.",
     },
-    eyebrow: "Services / Fractional Business Development",
-    h1: "Proprietary origination, run by our team, under our brand",
-    lead:
-      "A shared origination team running scaled, direct-to-owner outreach against your mandate without the cost or ramp of building internally.",
-    definitionTitle: "Fractional business development, defined for dealmakers",
-    definition:
-      "Fractional BD is an outsourced origination function that builds the target universe, runs outreach, qualifies owners, and reports pipeline under the OutSearched brand.",
-    operatingModel: [
-      { title: "Shared team economics", body: "Get institutional sourcing output without carrying permanent headcount." },
-      { title: "Confidential brand posture", body: "Outreach can stay under OutSearched until buyer identity should be introduced." },
-      { title: "Mandate-specific execution", body: "Every campaign is built around your buy-box, target logic, and qualification criteria." },
+    eyebrow: "Fractional Business Development",
+    heroTitle: "Senior BD expertise, fractionally. Results that scale.",
+    heroGoldLine: "fractionally.",
+    lead: "Get a senior-level Business Development resource without the cost or commitment of a full-time hire. We plug in, build your pipeline, and drive real outcomes.",
+    whatWeDoHeading: "Strategic execution. Seamless integration.",
+    whatWeDoBody:
+      "We embed as a fractional BD resource focused on your goals—handling outreach, follow-up, and pipeline management under your brand.",
+    featureCards: [
+      { icon: "Clock", title: "Dedicated bandwidth", body: "Senior BD firepower, part-time or custom hours aligned with your needs." },
+      { icon: "BarChart2", title: "Managed pipeline", body: "Outreach, follow-up, and tracking—so your calendar stays full with qualified meetings." },
+      { icon: "Globe", title: "Multi-channel outreach", body: "Email, LinkedIn, calls, events, and more. We reach the right people, consistently." },
+      { icon: "ShieldCheck", title: "You stay in control", body: "We operate under your brand, with your messaging, and your standards." },
     ],
-    fitTitle: "Built for buyers who need proprietary flow without institutional headcount",
-    fit: ["Independent sponsors", "PE firms testing a thesis", "Family offices that prefer discretion", "Corporate teams with temporary capacity gaps"],
-    comparison: [
-      { title: "Versus databases", body: "We run the work, not just the list." },
-      { title: "Versus internal BD", body: "Faster launch and lower fixed cost for teams that do not need a named seat." },
+    builtForHeading: "High impact without the overhead.",
+    builtForBody: "We integrate seamlessly with your team, tools, and process.",
+    builtForChecklist: [
+      "Immediate leverage for your team",
+      "Scale your pipeline efficiently",
+      "Focus your time on high-value activities",
+      "Flexible engagement, measurable ROI",
     ],
+    vsLeft: {
+      title: "Versus Full-Time Hire",
+      items: ["No recruiting delays", "Lower total cost", "Immediate impact", "No long-term overhead"],
+    },
+    vsRight: {
+      title: "Versus Agencies",
+      items: ["Works under your brand", "More strategic, not just tactical", "Aligned with your goals", "Built for long-term wins"],
+    },
+    chooseModelHeading: "Flexible engagement. Real results. Your choice.",
+    provenImpactHeading: "Fractional. Focused. Measurable.",
+    provenImpactBody:
+      "We deliver the same outcomes you expect from a full-time BD hire—without the overhead or long ramp.",
+    serviceStats: [
+      { value: "$500M+", label: "Pipeline generated", detail: "Across multiple client engagements over the past 24 months." },
+      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days." },
+      { value: "+60", label: "Active BD campaigns", detail: "Multi-channel outreach that fills your funnel consistently." },
+    ],
+    setupTitle: "Typical Setup",
+    setup: [
+      "Fractional engagement, full accountability",
+      "Works like part of your team",
+      "Follows your process and ICP",
+      "Drives pipeline and measurable results",
+    ],
+    setupQuote: "Your team. Our expertise. Shared success.",
+    proofImageUrl:
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80",
     faq: [
-      { question: "How quickly can outreach start?", answer: "The target universe and messaging usually begin immediately after mandate definition." },
-      { question: "Does OutSearched speak directly with owners?", answer: "Yes. We qualify owner interest before bringing opportunities to you." },
+      {
+        question: "How does fractional BD differ from internal hiring?",
+        answer:
+          "Fractional BD gives you senior BD expertise and immediate output without the recruiting ramp, training period, or long-term employment commitment. You get results from day one.",
+      },
+      {
+        question: "What does a typical engagement look like?",
+        answer:
+          "We start with mandate definition and target universe build, then move into active outreach within the first week. You get weekly pipeline reports and qualified meeting handoffs throughout.",
+      },
+      {
+        question: "Can you work with our existing tools and CRM?",
+        answer:
+          "Yes. We integrate with the tools you already use—including your CRM, email platform, and reporting workflows—so there's no disruption to your existing process.",
+      },
+      {
+        question: "How soon will we see results?",
+        answer:
+          "Most clients see qualified meetings within the first 30-60 days, depending on mandate complexity and target market responsiveness.",
+      },
     ],
+    ctaEyebrow: "Ready to Grow?",
+    ctaHeading: "Leverage senior BD expertise—without the full-time cost.",
+    ctaBody: "We become your fractional BD partner and help you build a stronger pipeline, faster.",
+    heroImageUrl:
+      "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1200&q=80",
+    ctaImageUrl:
+      "https://images.unsplash.com/photo-1526628953301-3cd2fa946fc0?auto=format&fit=crop&w=900&q=80",
   },
   {
     slug: "buy-side-ma-advisory",
@@ -584,28 +706,85 @@ export const servicePages: ServicePageContent[] = [
       description:
         "OutSearched provides buy-side M&A advisory for LMM buyers from mandate definition through LOI negotiation, including sourcing strategy and deal structuring.",
     },
-    eyebrow: "Services / Buy-Side M&A Advisory",
-    h1: "In-the-market advisory, at every stage of the deal",
-    lead:
-      "For buyers who have a team and process but want sharper mandate definition, sourcing architecture, negotiation support, or systems guidance.",
-    definitionTitle: "Buy-side advisory, defined for dealmakers",
-    definition:
-      "Advisory fits the buyer who runs origination internally but wants the judgment of a firm that sees deal sourcing campaigns across the lower middle market every day.",
-    operatingModel: [
-      { title: "Mandate definition", body: "Sharpen the buy-box, target logic, and qualification standard." },
-      { title: "Sourcing architecture", body: "Improve how lists, messaging, channels, reporting, and owner qualification work together." },
-      { title: "Negotiation support", body: "Support the path from first conversation through LOI and diligence." },
+    eyebrow: "Buy-Side M&A Advisory",
+    heroTitle: "Find the right deals. Do the right diligence. Close with confidence.",
+    heroGoldLine: "Do the right diligence.",
+    lead: "We act as your buy-side partner—sourcing opportunities, running deep diligence, and helping you win the right deals at the right terms.",
+    whatWeDoHeading: "End-to-end buy-side support that de-risks every decision.",
+    whatWeDoBody:
+      "We don't just find deals—we evaluate, validate, and help you secure the right opportunities for long-term value creation.",
+    featureCards: [
+      { icon: "Search", title: "Deal Sourcing", body: "We find off-market and on-market opportunities aligned with your criteria." },
+      { icon: "SlidersHorizontal", title: "Target Screening", body: "Smart filtering and initial assessments to shortlist the best-fit opportunities." },
+      { icon: "FileText", title: "Due Diligence", body: "Financial, operational, commercial, and risk diligence that uncovers what matters." },
+      { icon: "TrendingUp", title: "Valuation & Deal Structuring", body: "Independent valuation and optimal deal structure advice." },
+      { icon: "Handshake", title: "Negotiation Support", body: "Strategic support through term sheet to closing." },
     ],
-    fitTitle: "Built for buyers who run their own origination and want sharper architecture",
-    fit: ["Existing BD teams", "Investment teams entering new sectors", "Buyers with a live opportunity needing tactical support"],
-    comparison: [
-      { title: "Advisory", body: "Best when you want sharper strategy but keep execution in-house." },
-      { title: "Done-for-you sourcing", body: "Best when you want OutSearched to run the daily outbound engine." },
+    builtForHeading: "Why buyers choose us as their M&A partner.",
+    builtForBody:
+      "We combine dealmaking experience with deep research and execution excellence to give you an unfair advantage.",
+    builtForChecklist: [
+      "Access to proprietary deal flow",
+      "Deep, data-driven diligence",
+      "Experienced M&A professionals",
+      "Aligned with your investment goals",
+      "Built for long-term partnerships",
     ],
+    vsLeft: {
+      title: "Versus Doing It Yourself",
+      items: ["Time-consuming sourcing", "Limited market access", "Diligence gaps", "Execution risk", "Opportunity cost"],
+    },
+    vsRight: {
+      title: "Versus Traditional Advisors",
+      items: ["Generic mandates", "High fees, misaligned", "Less hands-on execution", "Slower timelines", "Less flexible engagement"],
+    },
+    chooseModelHeading: "Flexible engagement. Aligned with your investment strategy.",
+    provenImpactHeading: "Results that drive stronger portfolios.",
+    provenImpactBody: "We help buyers build better businesses through better decisions.",
+    serviceStats: [
+      { value: "$500M+", label: "Pipeline evaluated", detail: "Across multiple industries and geographies." },
+      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days." },
+      { value: "+60", label: "Active mandates", detail: "Across search, diligence, and buy-side advisory engagements." },
+    ],
+    setupTitle: "Our Approach",
+    setup: [
+      "Buyer-first mindset",
+      "Independent and objective",
+      "Deep research, real insights",
+      "Discipline in process, focus on value",
+    ],
+    setupQuote: "Better decisions. Stronger businesses.",
+    proofImageUrl:
+      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80",
     faq: [
-      { question: "Can advisory be project-based?", answer: "Yes. Scope depends on whether the need is strategy, process, negotiation, or systems." },
-      { question: "Can advisory turn into sourcing?", answer: "Yes. Advisory often clarifies whether done-for-you origination would help." },
+      {
+        question: "What types of companies do you help us acquire?",
+        answer:
+          "We work across a wide range of industries and company types—from owner-operated businesses in the lower middle market to mid-sized companies with institutional backing. The fit depends on your thesis and criteria.",
+      },
+      {
+        question: "Do you only work with private companies?",
+        answer:
+          "Primarily yes. We focus on privately held companies where direct-to-owner conversations can create a proprietary advantage before a broad sale process exists.",
+      },
+      {
+        question: "How involved are you in the negotiation process?",
+        answer:
+          "Highly involved. We support buyers from initial conversation through LOI—including structuring, seller management, and deal term strategy. Our role is to protect your interests and keep the deal moving.",
+      },
+      {
+        question: "Can you support add-on acquisitions?",
+        answer:
+          "Yes. Add-on acquisition sourcing is one of our core service areas. We run targeted outreach for bolt-on mandates that fit an existing platform's strategic criteria.",
+      },
     ],
+    ctaEyebrow: "Ready to Acquire?",
+    ctaHeading: "Let's find and close the right deals—together.",
+    ctaBody: "Our buy-side advisory helps you build stronger businesses and create lasting value.",
+    heroImageUrl:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+    ctaImageUrl:
+      "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=900&q=80",
   },
   {
     slug: "ai-implementation",
@@ -617,28 +796,87 @@ export const servicePages: ServicePageContent[] = [
       description:
         "OutSearched builds custom AI tools and automation for LMM buyers to enhance deal sourcing, outreach efficiency, and pipeline management.",
     },
-    eyebrow: "Services / AI Implementation",
-    h1: "AI implementation for buy-side deal sourcing",
-    lead:
-      "Custom systems that pull relevant sourcing data into one place, automate manual work, and give investment teams better context for decisions.",
-    definitionTitle: "AI implementation for buy-side M&A, defined",
-    definition:
-      "AI implementation turns scattered sourcing data, CRM notes, outreach history, target attributes, and decision workflows into infrastructure your team can actually use.",
-    operatingModel: [
-      { title: "Data foundation", body: "Clean, connect, and structure source data so it can support real workflows." },
-      { title: "Workflow automation", body: "Reduce manual research, list cleanup, qualification notes, and reporting." },
-      { title: "Decision context", body: "Surface the target, mandate, and history context your team needs before outreach or review." },
+    eyebrow: "AI Implementation",
+    heroTitle: "Smarter systems. Better decisions. Real impact.",
+    heroGoldLine: "Better decisions.",
+    lead: "We help dealmakers and investment firms implement AI solutions that automate work, surface insights, and give you a competitive edge.",
+    whatWeDoHeading: "AI solutions designed for dealmakers.",
+    whatWeDoBody:
+      "We plan, build, and integrate AI solutions that fit your workflow—so your team saves time, reduces manual work, and makes better decisions, faster.",
+    featureCards: [
+      { icon: "Zap", title: "Process Automation", body: "Automate repetitive tasks and workflows to save hours every week." },
+      { icon: "BarChart2", title: "Data & Insights", body: "Turn your data into actionable insights with AI-powered analytics." },
+      { icon: "Brain", title: "Research & Intelligence", body: "Faster research, smarter summaries, and deeper market & company intelligence." },
+      { icon: "MessageSquare", title: "Content & Comms", body: "AI-assisted drafting, summaries, and communications that stay on-brand." },
+      { icon: "Link2", title: "Seamless Integration", body: "We integrate AI into your existing tools and systems—without disruption." },
     ],
-    fitTitle: "Built for buyers whose sourcing is bottlenecked by data and manual work",
-    fit: ["Teams with messy CRM data", "Buyers with repeated research workflows", "Investment teams that need clearer target context"],
-    comparison: [
-      { title: "Versus generic AI tools", body: "A custom implementation maps to your data, workflows, and acquisition criteria." },
-      { title: "Versus more headcount", body: "Automation removes repetitive work so people focus on owner conversations and judgment." },
+    builtForHeading: "AI that works for your team—not the other way around.",
+    builtForBody: "We focus on practical AI that drives results, not experiments.",
+    builtForChecklist: [
+      "Tailored to your workflows",
+      "Secure and data-responsible",
+      "Measurable ROI from day one",
+      "Training and ongoing support",
+      "Built for long-term adoption",
     ],
+    vsLeft: {
+      title: "Versus DIY AI Tools",
+      items: ["Time-consuming setup", "Steep learning curve", "Hard to integrate", "Limited results", "No ongoing support"],
+    },
+    vsRight: {
+      title: "Versus Generic Solutions",
+      items: ["Not built for dealmakers", "One-size-fits-all approach", "Limited customization", "Poor adoption", "Short-term impact"],
+    },
+    chooseModelHeading: "Flexible engagement. Scalable solutions. Your choice.",
+    provenImpactHeading: "AI that delivers measurable results.",
+    provenImpactBody: "We help firms unlock efficiency, reduce costs, and drive better outcomes with AI.",
+    serviceStats: [
+      { value: "$500M+", label: "Pipeline influenced", detail: "Across multiple clients and engagements." },
+      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days." },
+      { value: "60+", label: "AI automations deployed", detail: "From research to reporting and outreach." },
+      { value: "30–70%", label: "Time saved", detail: "On repetitive tasks across client workflows." },
+    ],
+    setupTitle: "Our Approach",
+    setup: [
+      "Understand your goals and workflows",
+      "Identify high-impact AI opportunities",
+      "Build and integrate the right solution",
+      "Test, train, and optimize for adoption",
+      "Deliver measurable results",
+    ],
+    setupQuote: "Smarter systems. Better outcomes.",
+    proofImageUrl:
+      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=900&q=80",
     faq: [
-      { question: "Is this a software subscription?", answer: "No. It is implementation work scoped around your data and workflow needs." },
-      { question: "Can this integrate with an existing CRM?", answer: "Yes, subject to the systems and access available during scoping." },
+      {
+        question: "What types of AI solutions do you implement?",
+        answer:
+          "We implement AI across sourcing workflows, CRM automation, research intelligence, document analysis, outreach personalization, and pipeline reporting. Each solution is custom-built for your specific use case.",
+      },
+      {
+        question: "How long does implementation take?",
+        answer:
+          "Project timelines vary by scope, but most engagements move from discovery to live deployment within 4-12 weeks. We start with a focused build and expand from there.",
+      },
+      {
+        question: "Is my data secure?",
+        answer:
+          "Yes. We take data security seriously. All implementations follow best practices for access control, encryption, and data handling. We work within your existing security framework.",
+      },
+      {
+        question: "Do you provide training and support?",
+        answer:
+          "Yes. Every implementation includes team training and ongoing support to ensure adoption. We stay involved until your team is confident and the system is delivering results.",
+      },
     ],
+    ctaEyebrow: "Ready to Innovate?",
+    ctaHeading: "Let's implement AI that drives real results.",
+    ctaBody:
+      "We'll help you identify opportunities, implement the right solutions, and unlock the full potential of AI for your firm.",
+    heroImageUrl:
+      "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=1200&q=80",
+    ctaImageUrl:
+      "https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=900&q=80",
   },
 ];
 
