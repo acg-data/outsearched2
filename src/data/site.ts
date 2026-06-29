@@ -608,8 +608,7 @@ export const servicePages: ServicePageContent[] = [
     setupTitle: "Typical Setup",
     setup: ["Works like an internal team member", "Follows your process", "Drives your results"],
     setupQuote: "Your team. Our expertise. Shared success.",
-    proofImageUrl:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80",
+    proofImageUrl: "/assets/services/internal-bd-proof.webp",
     faq: [
       {
         question: "Who manages the rep?",
@@ -626,10 +625,8 @@ export const servicePages: ServicePageContent[] = [
     ctaHeading: "Let's build your pipeline together.",
     ctaBody:
       "A stronger pipeline starts here. We'll build your outreach engine so you can focus on what you do best—closing deals and leading your firm.",
-    heroImageUrl:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
-    ctaImageUrl:
-      "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=900&q=80",
+    heroImageUrl: "/assets/services/internal-bd-hero.webp",
+    ctaImageUrl: "/assets/services/internal-bd-cta.webp",
   },
   {
     slug: "fractional-business-development",
