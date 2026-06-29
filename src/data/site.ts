@@ -9,6 +9,20 @@ export interface Stat {
   value: string;
   label: string;
   detail?: string;
+  icon?: string;
+}
+
+export interface EngagementCard {
+  icon: string;
+  title: string;
+  body: string;
+  link?: string;
+}
+
+export interface EngagementBonus {
+  icon: string;
+  title: string;
+  body: string;
 }
 
 export interface ContentCard {
@@ -75,7 +89,10 @@ export interface ServicePageContent {
   builtForChecklist: string[];
   vsLeft: ServiceComparison;
   vsRight: ServiceComparison;
+  engagementEyebrow: string;
   chooseModelHeading: string;
+  engagementCards: EngagementCard[];
+  engagementBonus?: EngagementBonus;
   provenImpactHeading: string;
   provenImpactBody: string;
   serviceStats: Stat[];
@@ -574,13 +591,19 @@ export const servicePages: ServicePageContent[] = [
       title: "Versus Agencies",
       items: ["We work under your brand", "Strategic, not just tactical", "Aligned with your goals", "Built for long-term wins"],
     },
+    engagementEyebrow: "Choose Your Model",
     chooseModelHeading: "Flexible engagement. Real results. Your choice.",
+    engagementCards: [
+      { icon: "Clock", title: "Fractional Business Development", body: "Part-time support with big-time impact. Perfect for lean teams or new initiatives.", link: "/services/fractional-business-development" },
+      { icon: "Handshake", title: "Buy-Side M&A Advisory", body: "Dedicated BD support for advisors focused on middle-market and higher-value deals.", link: "/services/buy-side-ma-advisory" },
+      { icon: "Zap", title: "AI Implementation", body: "End-to-end BD execution. We build, run, and optimize your pipeline.", link: "/services/ai-implementation" },
+    ],
     provenImpactHeading: "Real impact. Real results.",
     provenImpactBody: "We help dealmakers grow their pipeline, their brand, and their bottom line.",
     serviceStats: [
-      { value: "$500M+", label: "Pipeline generated", detail: "Across multiple client engagements over the past 24 months." },
-      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days." },
-      { value: "+60", label: "Active BD campaigns", detail: "Multi-channel outreach that fills your funnel consistently." },
+      { value: "$500M+", label: "Pipeline generated", detail: "Across multiple client engagements over the past 24 months.", icon: "Flag" },
+      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days.", icon: "BarChart2" },
+      { value: "+60", label: "Active BD campaigns at any given time", detail: "Multi-channel outreach that fills your funnel consistently.", icon: "Users" },
     ],
     setupTitle: "Typical Setup",
     setup: ["Works like an internal team member", "Follows your process", "Drives your results"],
@@ -647,14 +670,20 @@ export const servicePages: ServicePageContent[] = [
       title: "Versus Agencies",
       items: ["Works under your brand", "More strategic, not just tactical", "Aligned with your goals", "Built for long-term wins"],
     },
+    engagementEyebrow: "Choose Your Model",
     chooseModelHeading: "Flexible engagement. Real results. Your choice.",
+    engagementCards: [
+      { icon: "UserRound", title: "Internal Business Development", body: "A dedicated BD seat that works like part of your internal team.", link: "/services/internal-business-development" },
+      { icon: "Handshake", title: "Buy-Side M&A Advisory", body: "Dedicated BD support for advisors focused on middle-market and higher-value deals.", link: "/services/buy-side-ma-advisory" },
+      { icon: "Zap", title: "AI Implementation", body: "End-to-end BD execution. We build, run, and optimize your pipeline.", link: "/services/ai-implementation" },
+    ],
     provenImpactHeading: "Fractional. Focused. Measurable.",
     provenImpactBody:
       "We deliver the same outcomes you expect from a full-time BD hire—without the overhead or long ramp.",
     serviceStats: [
-      { value: "$500M+", label: "Pipeline generated", detail: "Across multiple client engagements over the past 24 months." },
-      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days." },
-      { value: "+60", label: "Active BD campaigns", detail: "Multi-channel outreach that fills your funnel consistently." },
+      { value: "$500M+", label: "Pipeline generated", detail: "Across multiple client engagements over the past 24 months.", icon: "Flag" },
+      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days.", icon: "BarChart2" },
+      { value: "+60", label: "Active BD campaigns at any given time", detail: "Multi-channel outreach that fills your funnel consistently.", icon: "Users" },
     ],
     setupTitle: "Typical Setup",
     setup: [
@@ -738,13 +767,24 @@ export const servicePages: ServicePageContent[] = [
       title: "Versus Traditional Advisors",
       items: ["Generic mandates", "High fees, misaligned", "Less hands-on execution", "Slower timelines", "Less flexible engagement"],
     },
+    engagementEyebrow: "Choose Your Engagement",
     chooseModelHeading: "Flexible engagement. Aligned with your investment strategy.",
+    engagementCards: [
+      { icon: "Search", title: "Deal Sourcing Partnership", body: "We find and qualify deals that match your investment thesis." },
+      { icon: "Users", title: "Diligence Partner", body: "We run deep diligence so you can make confident investment decisions." },
+      { icon: "Handshake", title: "End-to-End Buy-Side Advisory", body: "We manage the entire buy-side process from sourcing to closing." },
+    ],
+    engagementBonus: {
+      icon: "TrendingUp",
+      title: "Value Creation Support",
+      body: "Post-acquisition integration planning and execution support to maximize returns.",
+    },
     provenImpactHeading: "Results that drive stronger portfolios.",
     provenImpactBody: "We help buyers build better businesses through better decisions.",
     serviceStats: [
-      { value: "$500M+", label: "Pipeline evaluated", detail: "Across multiple industries and geographies." },
-      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days." },
-      { value: "+60", label: "Active mandates", detail: "Across search, diligence, and buy-side advisory engagements." },
+      { value: "$500M+", label: "Pipeline evaluated", detail: "Across multiple industries and geographies.", icon: "Flag" },
+      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days.", icon: "BarChart2" },
+      { value: "+60", label: "Active mandates", detail: "Across search, diligence, and buy-side advisory engagements.", icon: "Users" },
     ],
     setupTitle: "Our Approach",
     setup: [
@@ -827,14 +867,25 @@ export const servicePages: ServicePageContent[] = [
       title: "Versus Generic Solutions",
       items: ["Not built for dealmakers", "One-size-fits-all approach", "Limited customization", "Poor adoption", "Short-term impact"],
     },
+    engagementEyebrow: "Choose Your Engagement",
     chooseModelHeading: "Flexible engagement. Scalable solutions. Your choice.",
+    engagementCards: [
+      { icon: "ClipboardCheck", title: "AI Readiness Assessment", body: "Evaluate opportunities, identify high-impact use cases, and build your AI roadmap." },
+      { icon: "Brain", title: "Custom AI Implementation", body: "We design, build, and integrate AI solutions tailored to your goals and systems." },
+      { icon: "Settings", title: "Ongoing Optimization & Support", body: "We monitor, optimize, and evolve your AI systems for continuous improvement." },
+    ],
+    engagementBonus: {
+      icon: "Rocket",
+      title: "From strategy to execution—and beyond.",
+      body: "We don't just implement AI. We make it work for your business.",
+    },
     provenImpactHeading: "AI that delivers measurable results.",
     provenImpactBody: "We help firms unlock efficiency, reduce costs, and drive better outcomes with AI.",
     serviceStats: [
-      { value: "$500M+", label: "Pipeline influenced", detail: "Across multiple clients and engagements." },
-      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days." },
-      { value: "60+", label: "AI automations deployed", detail: "From research to reporting and outreach." },
-      { value: "30–70%", label: "Time saved", detail: "On repetitive tasks across client workflows." },
+      { value: "$500M+", label: "Pipeline influenced", detail: "Across multiple clients and engagements.", icon: "Users" },
+      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days.", icon: "BarChart2" },
+      { value: "60+", label: "AI automations deployed", detail: "From research to reporting and outreach.", icon: "Clock" },
+      { value: "30–70%", label: "Time saved", detail: "On repetitive tasks across client workflows.", icon: "TrendingUp" },
     ],
     setupTitle: "Our Approach",
     setup: [
