@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 audit-screenshots
+test-results
 *.local
 
 # Editor directories and files
