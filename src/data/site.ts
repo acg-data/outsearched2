@@ -9,6 +9,20 @@ export interface Stat {
   value: string;
   label: string;
   detail?: string;
+  icon?: string;
+}
+
+export interface EngagementCard {
+  icon: string;
+  title: string;
+  body: string;
+  link?: string;
+}
+
+export interface EngagementBonus {
+  icon: string;
+  title: string;
+  body: string;
 }
 
 export interface ContentCard {
@@ -34,17 +48,37 @@ export interface BuyerPageContent {
   navLabel: string;
   meta: PageMeta;
   eyebrow: string;
-  h1: string;
+  heroTitle: string;
+  heroGoldLine: string;
   lead: string;
-  problemTitle: string;
-  problemBody: string;
-  problemPoints: ContentCard[];
-  targetTitle: string;
-  targets: ContentCard[];
-  modelTitle: string;
-  models: ContentCard[];
-  fit: string[];
+  heroImageUrl: string;
+  trustLabel: string;
+  trustLogos: string[];
+  whatWeDoHeading: string;
+  whatWeDoBody: string;
+  featureCards: ServiceFeatureCard[];
+  builtForEyebrow: string;
+  builtForHeading: string;
+  builtForBody: string;
+  builtForChecklist: string[];
+  vsLeft: ServiceComparison;
+  vsRight: ServiceComparison;
+  engagementEyebrow: string;
+  engagementHeading: string;
+  engagementCards: EngagementCard[];
+  engagementBonus?: EngagementBonus;
+  provenImpactHeading: string;
+  provenImpactBody: string;
+  stats: Stat[];
+  approachEyebrow: string;
+  approachItems: string[];
+  approachImageUrl: string;
+  approachQuote: string;
   faq: FAQItem[];
+  ctaEyebrow: string;
+  ctaHeading: string;
+  ctaBody: string;
+  ctaImageUrl: string;
 }
 
 export interface ServiceFeatureCard {
@@ -75,7 +109,10 @@ export interface ServicePageContent {
   builtForChecklist: string[];
   vsLeft: ServiceComparison;
   vsRight: ServiceComparison;
+  engagementEyebrow: string;
   chooseModelHeading: string;
+  engagementCards: EngagementCard[];
+  engagementBonus?: EngagementBonus;
   provenImpactHeading: string;
   provenImpactBody: string;
   serviceStats: Stat[];
@@ -269,34 +306,82 @@ export const buyerPages: BuyerPageContent[] = [
       description:
         "OutSearched delivers proprietary deal flow to LMM private equity firms through direct-to-owner outreach for platform investments and bolt-on acquisitions.",
     },
-    eyebrow: "Who We Serve / LMM Private Equity",
-    h1: "Fractional and internal business development for LMM private equity",
-    lead:
-      "Run platform and add-on mandates concurrently with a sourcing function that can operate under your firm brand or as an external origination arm.",
-    problemTitle: "Most LMM PE firms are sourcing below their fund's ambition",
-    problemBody:
-      "Auction flow is crowded, banker coverage is relationship-dependent, and internal BD seats are hard to hire, train, and retain.",
-    problemPoints: [
-      { title: "Coverage gaps", body: "One or two people rarely cover every thesis, geography, and add-on angle with enough frequency." },
-      { title: "Auction compression", body: "Prepared sellers reach the same buyer universe and push price, certainty, and speed to the center." },
-      { title: "BD fragility", body: "When a rep leaves, the institutional memory and operating cadence often leaves with them." },
+    eyebrow: "LMM Private Equity",
+    heroTitle: "Source. Diligence. Invest. Scale. Repeat.",
+    heroGoldLine: "Invest. Scale.",
+    lead: "We partner with LMM private equity firms to find better deals, perform rigorous diligence, and build value where it matters most.",
+    heroImageUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+    trustLabel: "Trusted by PE Firms",
+    trustLogos: ["Wintrust", "KROLL", "KROLL", "Houlihan Lokey", "Lazard"],
+    whatWeDoHeading: "Full-cycle support for lower middle market investors.",
+    whatWeDoBody: "From proprietary deal sourcing to deep diligence and post-acquisition value creation support—we become an extension of your investment team.",
+    featureCards: [
+      { icon: "Search", title: "Proprietary Deal Sourcing", body: "Access to our curated networks and research engine to surface high-quality opportunities." },
+      { icon: "FileText", title: "Target Screening & Research", body: "Data-driven screening and industry research to identify the right investment targets." },
+      { icon: "BarChart2", title: "Due Diligence Support", body: "Deep financial, commercial, operational and market diligence to reduce risk and increase conviction." },
+      { icon: "TrendingUp", title: "Value Creation Planning", body: "100-day plans and strategies to unlock value and drive portfolio company growth." },
+      { icon: "Users", title: "Exit Readiness Support", body: "Position your portfolio companies for optimal exits and premium valuations." },
     ],
-    targetTitle: "Platform mandates and add-on mandates, run concurrently",
-    targets: [
-      { title: "$2MM to $5MM EBITDA platforms", body: "Founder-led businesses in defined sectors where early access changes the entry multiple." },
-      { title: "$750K to $1.5MM add-ons", body: "Tuck-ins and regional operators that strengthen an existing portfolio thesis." },
-      { title: "Mandate-specific universes", body: "Target lists built around industry, geography, ownership structure, and strategic fit." },
+    builtForEyebrow: "Built for LMM Private Equity",
+    builtForHeading: "Why PE firms choose us as their deal partner.",
+    builtForBody: "We combine deep market intelligence, proprietary outreach, and hands-on execution to give you a sustainable investment edge.",
+    builtForChecklist: [
+      "Exclusive deal flow",
+      "Lower competition",
+      "Better diligence, lower risk",
+      "Faster execution",
+      "Stronger portfolio outcomes",
     ],
-    modelTitle: "Embed us inside your firm, or run us as your external origination arm",
-    models: [
-      { title: "Internal Business Development", body: "A dedicated BD rep fronts every owner conversation under your firm brand." },
-      { title: "Fractional Business Development", body: "Our team runs direct-to-owner outreach under the OutSearched brand for confidentiality and speed." },
+    vsLeft: {
+      title: "Versus Traditional Sourcing",
+      items: ["Limited, over-crowded deal flow", "Reactive, not proactive", "Time-consuming processes", "Fragmented data", "Inconsistent quality"],
+    },
+    vsRight: {
+      title: "Versus Other Providers",
+      items: ["We work as your partner", "Deep LMM focus", "Proprietary intelligence", "Execution-oriented", "Aligned with your goals"],
+    },
+    engagementEyebrow: "Flexible Engagement Models",
+    engagementHeading: "Flexible partnership. Aligned with your investment strategy.",
+    engagementCards: [
+      { icon: "Search", title: "Deal Sourcing Partnership", body: "Ongoing proprietary deal flow aligned to your thesis." },
+      { icon: "FileText", title: "Due Diligence Support", body: "On-demand or end-to-end diligence for smarter investment decisions." },
+      { icon: "TrendingUp", title: "Platform Value Creation", body: "Post-close support to improve operations and drive growth." },
+      { icon: "Users", title: "Special Situations & Turnarounds", body: "Hands-on support for complex situations and value recovery." },
     ],
-    fit: ["LMM PE funds running multiple theses", "Platform and add-on coverage", "Teams that want more owner conversations without adding permanent headcount"],
+    engagementBonus: {
+      icon: "TrendingUp",
+      title: "We integrate seamlessly with your team and processes.",
+      body: "Discreet. Professional. Results-driven.",
+    },
+    provenImpactHeading: "Delivering results that move the needle.",
+    provenImpactBody: "",
+    stats: [
+      { value: "$500M+", label: "Deal flow influenced", detail: "Across multiple industries and geographies.", icon: "Flag" },
+      { value: "52x", label: "Meetings generated", detail: "Average increase in qualified meetings within the first 90 days.", icon: "BarChart2" },
+      { value: "30+", label: "Platforms supported", detail: "From majority investments to add-on acquisitions.", icon: "Users" },
+      { value: "20%+", label: "Value uplift", detail: "Average EBITDA improvement in portfolio companies.", icon: "TrendingUp" },
+    ],
+    approachEyebrow: "Our Approach",
+    approachItems: [
+      "Thesis-aligned deal sourcing",
+      "Independent and objective diligence",
+      "Actionable insights and recommendations",
+      "Partner-level execution",
+      "Long-term partnership mindset",
+    ],
+    approachImageUrl: "https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?auto=format&fit=crop&w=900&q=80",
+    approachQuote: "Strategic Investments. Measurable Impact.",
     faq: [
-      { question: "Can OutSearched augment an existing BD team?", answer: "Yes. We can run dedicated proprietary outreach while your internal team continues banker and relationship coverage." },
-      { question: "Can outreach use our firm brand?", answer: "Yes. Internal BD is designed for exactly that operating model." },
+      { question: "What makes your deal flow different?", answer: "We combine proprietary outreach, deep market intelligence, and curated research to deliver differentiated deal flow. Our team acts as an extension of yours—aligned with your thesis and focused on opportunities you won't find through traditional channels." },
+      { question: "How do you ensure deal quality?", answer: "Every opportunity goes through a structured qualification process. We evaluate strategic fit, financial profile, management quality, and transaction readiness before presenting opportunities to your team." },
+      { question: "Can you support our due diligence end-to-end?", answer: "Yes. We provide comprehensive diligence support—financial, commercial, operational, and market—so you can move with conviction and reduce risk throughout the investment process." },
+      { question: "How do you support value creation post-close?", answer: "We offer 100-day planning, operational improvement initiatives, and ongoing value creation support to help portfolio companies achieve their full potential after acquisition." },
+      { question: "What is your typical engagement model?", answer: "We offer flexible models including deal sourcing partnerships, on-demand diligence support, platform value creation, and special situations advisory. The right structure depends on your investment strategy." },
     ],
+    ctaEyebrow: "Ready to Invest Smarter?",
+    ctaHeading: "Let's build stronger portfolio companies—together.",
+    ctaBody: "We help LMM private equity firms find the right deals, mitigate risk, and create lasting value.",
+    ctaImageUrl: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80",
   },
   {
     slug: "independent-sponsors",
@@ -308,34 +393,82 @@ export const buyerPages: BuyerPageContent[] = [
       description:
         "OutSearched delivers proprietary deal flow to LMM independent sponsors, reaching owners before any process exists so you win on entry multiple.",
     },
-    eyebrow: "Who We Serve / Independent Sponsors",
-    h1: "Built for sponsors competing against private equity",
-    lead:
-      "Independent sponsors win when they reach owners early, shape the conversation, and bring LPs deals that were not already shopped.",
-    problemTitle: "Deal-by-deal economics demand off-market sourcing",
-    problemBody:
-      "You do not have the cushion of committed capital. Banker-led deals are often too expensive by the time you see them.",
-    problemPoints: [
-      { title: "Auction deals do not pencil", body: "Competition pushes price and certainty requirements before you can build conviction." },
-      { title: "LP conversations need substance", body: "A proprietary angle gives investors a clearer reason to engage." },
-      { title: "Search time is limited", body: "You need qualified conversations, not a static database or generic list." },
+    eyebrow: "Independent Sponsors",
+    heroTitle: "Your deal. Your fund. Our execution. Built for you.",
+    heroGoldLine: "Our execution.",
+    lead: "We partner with independent sponsors to source, diligence, and close exceptional businesses—faster and with greater certainty.",
+    heroImageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80",
+    trustLabel: "Trusted by Sponsors",
+    trustLogos: ["Wintrust", "KROLL", "KROLL", "Houlihan Lokey", "Lazard"],
+    whatWeDoHeading: "End-to-end support for independent sponsors.",
+    whatWeDoBody: "We act as your extended team—helping you find, evaluate, and close the right platform so you can create long-term value and build a track record investors trust.",
+    featureCards: [
+      { icon: "Search", title: "Deal Sourcing", body: "Proprietary outreach and off-market channels to find the right opportunities." },
+      { icon: "FileText", title: "Screening & Assessment", body: "We quickly identify, evaluate, and prioritize high-potential opportunities." },
+      { icon: "BarChart2", title: "Due Diligence", body: "Operational, financial, commercial, and market diligence to de-risk your investment." },
+      { icon: "Handshake", title: "Deal Support", body: "Negotiation support, term sheet review, and process management." },
+      { icon: "TrendingUp", title: "Post-Close Support", body: "100-day planning, value creation, and execution guidance." },
     ],
-    targetTitle: "Platform mandates and add-on mandates, sized to sponsor economics",
-    targets: [
-      { title: "$2MM to $5MM platforms", body: "Businesses large enough to support institutional LP conversations." },
-      { title: "$500K to $1MM add-ons", body: "Narrow acquisition angles that strengthen an existing or planned platform." },
-      { title: "Owner-led sectors", body: "Thesis-fit niches where direct outreach can create an early relationship." },
+    builtForEyebrow: "Built for Independent Sponsors",
+    builtForHeading: "Why sponsors partner with us.",
+    builtForBody: "We understand the unique challenges you face and help you move faster, smarter, and with more confidence.",
+    builtForChecklist: [
+      "No internal team? We've got you.",
+      "Flexible support, when you need it.",
+      "Deep experience across industries.",
+      "Aligned with your goals.",
+      "Built to win.",
     ],
-    modelTitle: "Run us as your external sourcing arm, or embed us inside your firm",
-    models: [
-      { title: "Fractional BD", body: "Shared team economics with direct-to-owner execution under our brand." },
-      { title: "Internal BD", body: "Dedicated coverage when you want a named rep operating as your team." },
+    vsLeft: {
+      title: "Versus Doing It Alone",
+      items: ["Time-consuming sourcing", "Limited deal access", "Fewer data points", "Higher execution risk", "Steep learning curve"],
+    },
+    vsRight: {
+      title: "Versus Traditional Firms",
+      items: ["More partner-level attention", "Cost-effective model", "Founder-friendly approach", "Greater flexibility", "Long-term partnership"],
+    },
+    engagementEyebrow: "Flexible Engagement Models",
+    engagementHeading: "Tailored support. Every step of the way.",
+    engagementCards: [
+      { icon: "Search", title: "Deal Sourcing Partnership", body: "Ongoing sourcing support to build your deal pipeline." },
+      { icon: "FileText", title: "Deal Evaluation Support", body: "Research and diligence support to help you make confident decisions." },
+      { icon: "Handshake", title: "Deal Execution Support", body: "End-to-end support through negotiation and closing." },
+      { icon: "TrendingUp", title: "Value Creation Partnership", body: "Hands-on support post-close to drive results." },
     ],
-    fit: ["Capitalized sponsors", "Narrow thesis programs", "Buyers who need LP-presentable proprietary opportunities"],
+    engagementBonus: {
+      icon: "UserRound",
+      title: "Your success is our priority.",
+      body: "Discreet. Independent. Results-driven.",
+    },
+    provenImpactHeading: "Results that help you build your track record.",
+    provenImpactBody: "",
+    stats: [
+      { value: "$500M+", label: "Capital deployed", detail: "Across multiple sponsors and industries.", icon: "Flag" },
+      { value: "52x", label: "Meetings generated", detail: "Average increase in qualified meetings within the first 90 days.", icon: "BarChart2" },
+      { value: "30+", label: "Sponsors supported", detail: "Helping first-time and experienced sponsors win better deals.", icon: "Users" },
+      { value: "20%+", label: "Value creation", detail: "Average EBITDA improvement across portfolio companies.", icon: "TrendingUp" },
+    ],
+    approachEyebrow: "Our Approach",
+    approachItems: [
+      "Sponsor-first mindset",
+      "Independent and objective",
+      "Deep research and insights",
+      "Actionable recommendations",
+      "Execution-focused partnership",
+    ],
+    approachImageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80",
+    approachQuote: "Founder-Focused. Outcome-Driven.",
     faq: [
-      { question: "Do you work with first-time sponsors?", answer: "Yes, when the sponsor is well-capitalized, focused, and ready to move when a qualified opportunity appears." },
-      { question: "Can you help with LP-ready deal positioning?", answer: "We support qualification and narrative around why the target fits the mandate." },
+      { question: "How is your model different from an investment bank?", answer: "Investment banks typically represent sellers. We work exclusively for the buyer—sourcing proprietary deals, running diligence, and supporting execution. Our incentives are aligned with your success." },
+      { question: "What types of businesses do you help us acquire?", answer: "We focus on lower middle-market businesses across a range of industries. The right target depends on your thesis, capital structure, and operational experience." },
+      { question: "Do you take equity or success fees?", answer: "Our engagement models are designed to be transparent and aligned with your economics. We discuss fee structures during our initial strategy call." },
+      { question: "How involved can you be in execution?", answer: "As involved as you need—from sourcing and screening all the way through diligence, negotiation, and post-close value creation planning." },
+      { question: "Can you help after we close the deal?", answer: "Yes. We offer post-close support including 100-day planning, operational improvement initiatives, and ongoing value creation guidance." },
     ],
+    ctaEyebrow: "Ready to Build Your Fund?",
+    ctaHeading: "Find the right business. Build lasting value.",
+    ctaBody: "We help independent sponsors source and close the right platform—so you can build your fund and your legacy.",
+    ctaImageUrl: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80",
   },
   {
     slug: "search-funds",
@@ -347,34 +480,82 @@ export const buyerPages: BuyerPageContent[] = [
       description:
         "OutSearched delivers proprietary deal flow to LMM search funds through direct owner outreach so you close on the one acquisition that matters.",
     },
-    eyebrow: "Who We Serve / Search Funds",
-    h1: "The highest-leverage spend in your search is qualified deal flow",
-    lead:
-      "Search capital only matters if it creates real owner conversations with businesses that fit the thesis and can close.",
-    problemTitle: "Without qualified acquisition opportunities, the search is dead in the water",
-    problemBody:
-      "A broad market scan is not enough. Searchers need a focused target universe, steady outreach, and credibility with owners.",
-    problemPoints: [
-      { title: "Runway pressure", body: "Every month spent on low-fit conversations burns scarce search capital." },
-      { title: "Credibility gap", body: "Owners need to understand why this buyer is serious before they share sensitive information." },
-      { title: "Thesis drift", body: "A wide search can dilute the exact acquisition profile investors backed." },
+    eyebrow: "Search Funds",
+    heroTitle: "Find the right business. Close with confidence.",
+    heroGoldLine: "Close with confidence.",
+    lead: "We partner with search fund entrepreneurs to source, evaluate, and close the right acquisition—faster and with less risk.",
+    heroImageUrl: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80",
+    trustLabel: "Trusted by Searchers",
+    trustLogos: ["Stanford", "INSEAD", "Harvard Business School", "Rice", "Northwestern Kellogg"],
+    whatWeDoHeading: "End-to-end support for search fund entrepreneurs.",
+    whatWeDoBody: "We act as your extended team—helping you source off-market opportunities, evaluate targets, connect with the right people, and get to close with conviction.",
+    featureCards: [
+      { icon: "Search", title: "Deal Sourcing", body: "Proprietary outreach and network to find off-market, founder-considering businesses." },
+      { icon: "FileText", title: "Screening & Qualification", body: "We qualify, evaluate, and prioritize the best-fit opportunities for your criteria." },
+      { icon: "BarChart2", title: "Due Diligence Support", body: "Financial, operational, and market due diligence to reduce risk and build conviction." },
+      { icon: "Handshake", title: "Owner Engagement", body: "Warm introductions, relationship building, and negotiation support." },
+      { icon: "ClipboardCheck", title: "Closing Support", body: "Structuring guidance, LOI to close support, and transition planning." },
     ],
-    targetTitle: "Owner-replaceable businesses that fit the search",
-    targets: [
-      { title: "Owner-led businesses", body: "Companies where a transition story can work for the seller and buyer." },
-      { title: "Thesis-fit niches", body: "Markets with enough target density to support a real outbound motion." },
-      { title: "Quiet transition candidates", body: "Owners who are not in a banker-led process yet." },
+    builtForEyebrow: "Built for Searchers",
+    builtForHeading: "Why searchers choose us.",
+    builtForBody: "We understand the search journey because we've supported dozens of searchers from the first call to closing day.",
+    builtForChecklist: [
+      "Searcher-first mindset",
+      "Deep network & proprietary deal flow",
+      "Practical advice from experience",
+      "Flexible, on-demand support",
+      "Aligned with your goals",
     ],
-    modelTitle: "A focused sourcing motion for well-qualified searchers",
-    models: [
-      { title: "Mandate definition", body: "Tighten the buy-box before any list building or outreach begins." },
-      { title: "Direct-to-owner outreach", body: "Reach owners with a message that explains the searcher's fit and seriousness." },
+    vsLeft: {
+      title: "Versus Doing It Alone",
+      items: ["Limited network reach", "Harder to get meetings", "Time-consuming process", "Higher uncertainty", "Slower to close"],
+    },
+    vsRight: {
+      title: "Versus Traditional Brokers",
+      items: ["Not seller-focused", "Limited off-market access", "Less flexible engagement", "One-size-fits-all approach", "Higher fees"],
+    },
+    engagementEyebrow: "Flexible Engagement Models",
+    engagementHeading: "Support that adapts to your search.",
+    engagementCards: [
+      { icon: "Search", title: "Search Partner", body: "End-to-end support through the full search process." },
+      { icon: "Clock", title: "Sourcing Subscription", body: "Ongoing deal flow and outreach every month." },
+      { icon: "FileText", title: "Diligence Support", body: "Deep-dive support on targets you're evaluating." },
+      { icon: "Handshake", title: "Close Support Package", body: "Negotiation, closing, and transition support." },
     ],
-    fit: ["Well-funded searchers", "Focused theses", "Buyers prepared to move quickly when fit is clear"],
+    engagementBonus: {
+      icon: "UserRound",
+      title: "Your search. Our support. Better outcomes.",
+      body: "More opportunities. Less risk. Stronger businesses.",
+    },
+    provenImpactHeading: "Real results for search fund entrepreneurs.",
+    provenImpactBody: "",
+    stats: [
+      { value: "$500M+", label: "Enterprise value supported", detail: "Across multiple searchers and funds.", icon: "Flag" },
+      { value: "52x", label: "Meetings generated", detail: "Average increase in qualified meetings within 90 days.", icon: "BarChart2" },
+      { value: "30+", label: "Searchers supported", detail: "Across leading schools and search communities.", icon: "Users" },
+      { value: "20%+", label: "Faster time to close", detail: "Reduced average time from search to LOI.", icon: "TrendingUp" },
+    ],
+    approachEyebrow: "Our Approach",
+    approachItems: [
+      "Searcher-first, always",
+      "Independent and objective",
+      "Data-driven evaluation",
+      "Actionable insights",
+      "Long-term partnership mindset",
+    ],
+    approachImageUrl: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=80",
+    approachQuote: "The Right Business Today. Lasting Value Tomorrow.",
     faq: [
-      { question: "Do you work with all search funds?", answer: "We work with searchers who have capital, a clear thesis, and readiness to act." },
-      { question: "Can you help narrow a search thesis?", answer: "Yes. Mandate definition is part of the front-end process." },
+      { question: "Do you take equity in the search fund?", answer: "Our standard model does not require equity participation. We offer fee-based engagements designed to align with search fund economics." },
+      { question: "How do you source off-market opportunities?", answer: "We combine proprietary outreach, deep industry networks, and data-driven targeting to identify business owners who may be considering a transition but haven't engaged a broker." },
+      { question: "What stages of the search do you support?", answer: "We support searchers across the full lifecycle—from thesis refinement and target identification through owner engagement, diligence, and closing support." },
+      { question: "How do you get paid?", answer: "We offer flexible engagement models including retainer-based partnerships and project-based support. We discuss the right structure during our initial call." },
+      { question: "Can you help with SBA financing or lenders?", answer: "While we don't provide financing directly, we have relationships with SBA lenders and can help connect you with the right capital partners for your acquisition." },
     ],
+    ctaEyebrow: "Ready to Start Your Search?",
+    ctaHeading: "Find the right business. Build your future.",
+    ctaBody: "We help search fund entrepreneurs find and close exceptional businesses—so you can build something that lasts.",
+    ctaImageUrl: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80",
   },
   {
     slug: "family-offices",
@@ -386,34 +567,82 @@ export const buyerPages: BuyerPageContent[] = [
       description:
         "OutSearched delivers proprietary deal flow to LMM family offices through discreet direct-to-owner outreach tailored to your holding mandate.",
     },
-    eyebrow: "Who We Serve / Family Offices",
-    h1: "Patient capital deserves proprietary access",
-    lead:
-      "Family offices need direct, discreet conversations with businesses that fit the family's mandate, principles, and ownership horizon.",
-    problemTitle: "The best opportunities rarely arrive as forwarded teasers",
-    problemBody:
-      "Patient capital is a real advantage, but only if the family office sees opportunities before the broad buyer market does.",
-    problemPoints: [
-      { title: "Quality is inconsistent", body: "Forwarded banker flow rarely maps cleanly to a family's long-term mandate." },
-      { title: "Lean teams", body: "Many offices are intentionally small and do not want a full-time sourcing build." },
-      { title: "Discretion matters", body: "Direct outreach has to protect the family's name and operating style." },
+    eyebrow: "Family Offices",
+    heroTitle: "Preserve wealth. Create impact. Build legacies.",
+    heroGoldLine: "Create impact.",
+    lead: "We support family offices with sourcing, diligence, and execution—so you can invest with clarity and conviction.",
+    heroImageUrl: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=1200&q=80",
+    trustLabel: "Trusted by Family Offices",
+    trustLogos: ["Campden Wealth", "Aurora Family Office", "Longview Capital", "Northridge Family Office"],
+    whatWeDoHeading: "Private investments, managed with precision.",
+    whatWeDoBody: "We act as your extended investment team—sourcing opportunities, running rigorous diligence, and supporting execution across private markets.",
+    featureCards: [
+      { icon: "Search", title: "Deal Sourcing", body: "Access proprietary deal flow across private markets and geographies." },
+      { icon: "FileText", title: "Due Diligence", body: "Financial, operational, legal and commercial due diligence you can rely on." },
+      { icon: "BarChart2", title: "Investment Analysis", body: "Data-driven analysis to identify strong risk-adjusted opportunities." },
+      { icon: "Handshake", title: "Execution Support", body: "Negotiation, structuring and deal execution with your best interests in mind." },
+      { icon: "TrendingUp", title: "Portfolio Support", body: "Help with value creation, reporting and ongoing portfolio monitoring." },
     ],
-    targetTitle: "Founder-owned companies that fit more than a financial screen",
-    targets: [
-      { title: "Founder-led platforms", body: "Businesses where long-term ownership is a credible seller message." },
-      { title: "Succession opportunities", body: "Owners considering transition before a formal process exists." },
-      { title: "Sector theses", body: "Patient capital mapped to industries where the family has conviction." },
+    builtForEyebrow: "Built for Family Offices",
+    builtForHeading: "Why leading family offices partner with us.",
+    builtForBody: "We bring an operator's mindset and an investor's discipline.",
+    builtForChecklist: [
+      "Aligned with your long-term vision",
+      "Unbiased and independent",
+      "Institutional process",
+      "Confidential and discreet",
+      "Built for multi-generational impact",
     ],
-    modelTitle: "Discreet sourcing built around the family mandate",
-    models: [
-      { title: "Confidential outreach", body: "Run under OutSearched when discretion matters most." },
-      { title: "Mandate calibration", body: "Define fit around values, control preference, hold period, and operating involvement." },
+    vsLeft: {
+      title: "Versus Doing It Alone",
+      items: ["Limited reach and bandwidth", "Higher risk of oversight", "Slower deal process", "Inconsistent pipeline", "Resource intensive"],
+    },
+    vsRight: {
+      title: "Versus Traditional Advisors",
+      items: ["More personalized attention", "Unbiased, not product-driven", "Flexible engagement", "Deeper execution support", "True partnership mindset"],
+    },
+    engagementEyebrow: "Flexible Engagement Models",
+    engagementHeading: "Engagements that fit your strategy. On your terms.",
+    engagementCards: [
+      { icon: "Search", title: "Deal Sourcing Subscription", body: "Continuous pipeline of curated investment opportunities." },
+      { icon: "FileText", title: "Project-Based Advisory", body: "Support for specific mandates, themes or transactions." },
+      { icon: "BarChart2", title: "Diligence Support", body: "Deep-dive diligence on opportunities you are evaluating." },
+      { icon: "TrendingUp", title: "Ongoing Portfolio Support", body: "Help monitor performance and drive long-term value." },
     ],
-    fit: ["Direct holding family offices", "Long-term capital", "Lean teams that need consistent proprietary coverage"],
+    engagementBonus: {
+      icon: "UserRound",
+      title: "Your legacy. Our focus.",
+      body: "We help you make better investments—and build a lasting legacy.",
+    },
+    provenImpactHeading: "Consistent results. Aligned with your goals.",
+    provenImpactBody: "",
+    stats: [
+      { value: "$500M+", label: "Capital deployed", detail: "Across multiple family offices and strategies.", icon: "Flag" },
+      { value: "52x", label: "Meetings generated", detail: "Average increase in qualified meetings within the first 90 days.", icon: "BarChart2" },
+      { value: "30+", label: "Family offices served", detail: "Across diverse strategies and investment theses.", icon: "Users" },
+      { value: "20%+", label: "Value creation", detail: "Average EBITDA improvement across portfolio companies.", icon: "TrendingUp" },
+    ],
+    approachEyebrow: "Our Approach",
+    approachItems: [
+      "Understand your goals and investment thesis",
+      "Source differentiated opportunities",
+      "Run rigorous, independent diligence",
+      "Deliver clear recommendations",
+      "Support execution and portfolio value creation",
+    ],
+    approachImageUrl: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=80",
+    approachQuote: "Thoughtful Investments. Lasting Legacies.",
     faq: [
-      { question: "Can outreach stay discreet?", answer: "Yes. Fractional BD can run under our brand until buyer identity should be introduced." },
-      { question: "Can you support minority or control searches?", answer: "Yes. The mandate definition phase clarifies structure before outreach." },
+      { question: "How do you ensure confidentiality?", answer: "Discretion is fundamental to how we operate. We use confidential outreach methods, NDAs where appropriate, and never disclose your identity without explicit permission." },
+      { question: "What types of investments do you help with?", answer: "We support direct investments in private companies across the lower middle market—from platform acquisitions to add-on opportunities and co-investment partnerships." },
+      { question: "Can you work alongside our existing advisors?", answer: "Yes. We complement your existing advisory relationships by providing dedicated sourcing, diligence, and execution support without conflicting with other mandates." },
+      { question: "How do you source proprietary opportunities?", answer: "We combine proprietary outreach, deep industry networks, and data-driven targeting to identify business owners who may be considering a transition—often before any formal process exists." },
+      { question: "What is your typical engagement model?", answer: "We offer flexible models including retainer-based sourcing subscriptions, project-based advisory, and ongoing portfolio support. The right structure depends on your goals and investment cadence." },
     ],
+    ctaEyebrow: "Ready to Invest for Generations?",
+    ctaHeading: "Better investments. Stronger legacy.",
+    ctaBody: "We help family offices find exceptional opportunities, reduce risk, and build lasting value for generations to come.",
+    ctaImageUrl: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80",
   },
   {
     slug: "corporate-development",
@@ -425,34 +654,82 @@ export const buyerPages: BuyerPageContent[] = [
       description:
         "OutSearched sources off-market M&A targets for corporate development teams through direct-to-owner outreach, matched to synergy and accretion criteria.",
     },
-    eyebrow: "Who We Serve / Corporate Development",
-    h1: "Strategic sourcing for corporate development",
-    lead:
-      "Turn inorganic growth priorities into qualified owner conversations that can survive leadership, board, and integration scrutiny.",
-    problemTitle: "Your best targets are rarely the companies already in market",
-    problemBody:
-      "Corporate development mandates are strategic, but most inbound opportunities are marketed like financial buyer processes.",
-    problemPoints: [
-      { title: "Strategic fit is specific", body: "The target has to map to product, geography, capability, or customer logic." },
-      { title: "Teams are stretched", body: "Corp dev teams already own sourcing, diligence, internal approvals, and integration planning." },
-      { title: "Noise slows decisions", body: "Unqualified outreach and broad lists make it harder to defend a target internally." },
+    eyebrow: "Corporate Development",
+    heroTitle: "Strategic growth. Smarter partnerships. Stronger outcomes.",
+    heroGoldLine: "Smarter partnerships.",
+    lead: "We partner with corporate development teams to build pipelines, identify the right opportunities, and drive strategic growth—faster.",
+    heroImageUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+    trustLabel: "Trusted by Corporate Development Teams",
+    trustLogos: ["Microsoft", "Google", "AWS", "IBM", "Salesforce", "Siemens"],
+    whatWeDoHeading: "End-to-end support for corporate development teams.",
+    whatWeDoBody: "We act as your external CD engine—sourcing opportunities, driving outreach, and delivering insights so your team can focus on evaluation and execution.",
+    featureCards: [
+      { icon: "Search", title: "Opportunity Sourcing", body: "Identify high-potential targets aligned with your strategy and growth priorities." },
+      { icon: "FileText", title: "Market & Target Research", body: "Deep research on industries, companies, and trends to inform better decisions." },
+      { icon: "Users", title: "Outreach & Engagement", body: "Multi-channel outreach that opens doors and creates meaningful conversations." },
+      { icon: "Handshake", title: "Partnership Development", body: "Build relationships that lead to strategic partnerships, investments, or acquisitions." },
+      { icon: "BarChart2", title: "Reporting & Insights", body: "Clear reporting and actionable insights to support your pipeline and leadership." },
     ],
-    targetTitle: "Strategic targets mapped to the reason you would buy them",
-    targets: [
-      { title: "Product adjacencies", body: "Companies that extend the existing offering or customer base." },
-      { title: "Geographic expansion", body: "Operators that accelerate entry into a priority region." },
-      { title: "Capability acquisitions", body: "Businesses that add talent, technology, or service lines." },
+    builtForEyebrow: "Built for Corporate Development",
+    builtForHeading: "Why leading companies choose us.",
+    builtForBody: "We integrate with your strategy and processes to deliver measurable impact.",
+    builtForChecklist: [
+      "Aligned with your strategic priorities",
+      "Executive-level mindset and execution",
+      "High-quality pipelines, not just volume",
+      "Faster cycles, better outcomes",
+      "Flexible engagement, on your terms",
     ],
-    modelTitle: "A sourcing motion aligned to corporate strategy",
-    models: [
-      { title: "Target universe mapping", body: "Prioritize companies based on strategic rationale, not just financial filters." },
-      { title: "Owner outreach", body: "Reach decision-makers directly with a message grounded in the strategic fit." },
+    vsLeft: {
+      title: "Versus Doing It In-House",
+      items: ["Limited bandwidth", "Higher opportunity cost", "Slower pipeline development", "Resource constraints", "Competing internal priorities"],
+    },
+    vsRight: {
+      title: "Versus Traditional Sourcers",
+      items: ["We work under your brand", "Strategic, not just tactical", "Higher relevance & quality", "Built for long-term impact", "Integrated, not detached"],
+    },
+    engagementEyebrow: "Flexible Engagement Models",
+    engagementHeading: "Engagements that adapt to your goals. Your way.",
+    engagementCards: [
+      { icon: "UserRound", title: "Dedicated CD Seat", body: "An embedded resource dedicated to your pipeline and goals." },
+      { icon: "FileText", title: "Project-Based Support", body: "Targeted support for specific initiatives or mandates." },
+      { icon: "Clock", title: "Ongoing Pipeline Support", body: "Continuous pipeline generation and market engagement." },
+      { icon: "BarChart2", title: "Research & Advisory", body: "Deep research and insights to support decision-making." },
     ],
-    fit: ["Corporate development teams", "Strategic acquisition mandates", "Operators with board-level inorganic growth priorities"],
+    engagementBonus: {
+      icon: "TrendingUp",
+      title: "We become an extension of your team.",
+      body: "Discreet. Professional. Results-driven.",
+    },
+    provenImpactHeading: "Real results. Real impact.",
+    provenImpactBody: "",
+    stats: [
+      { value: "$500M+", label: "Pipeline influenced", detail: "Across multiple industries and geographies.", icon: "Flag" },
+      { value: "52x", label: "Meetings generated", detail: "Average increase in qualified meetings within 90 days.", icon: "BarChart2" },
+      { value: "30+", label: "Active mandates", detail: "Supporting corporate development teams across the globe.", icon: "Users" },
+      { value: "20%+", label: "Faster pipeline growth", detail: "Average improvement in opportunity velocity and conversion.", icon: "TrendingUp" },
+    ],
+    approachEyebrow: "Our Approach",
+    approachItems: [
+      "Understand your strategy and growth objectives",
+      "Identify and prioritize the right opportunities",
+      "Engage decision-makers and build relationships",
+      "Deliver insights, meetings, and a qualified pipeline",
+      "Support evaluation and drive outcomes",
+    ],
+    approachImageUrl: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80",
+    approachQuote: "Strategy. Execution. Growth.",
     faq: [
-      { question: "Can you source named-account targets?", answer: "Yes. Corporate development programs often start with specific companies or narrow market maps." },
-      { question: "Do you help qualify strategic fit?", answer: "Yes. Qualification is shaped around why the company would be accretive or strategically important." },
+      { question: "What types of opportunities do you help us find?", answer: "We help identify strategic acquisition targets, partnership opportunities, and investment prospects aligned with your corporate growth strategy—across industries and geographies." },
+      { question: "How do you ensure alignment with our strategy?", answer: "We start by deeply understanding your strategic priorities, growth objectives, and evaluation criteria. Every opportunity we surface is mapped to your specific goals." },
+      { question: "How do you handle confidentiality?", answer: "Confidentiality is built into our process. We use discreet outreach methods, NDAs where appropriate, and never disclose your identity without explicit permission." },
+      { question: "Can you work with our existing tools and processes?", answer: "Yes. We integrate with your existing CRM, reporting workflows, and internal processes so there's no disruption to how your team operates." },
+      { question: "What is your typical engagement model?", answer: "We offer flexible models including dedicated CD seats, project-based support, ongoing pipeline engagement, and research advisory. The right structure depends on your goals." },
     ],
+    ctaEyebrow: "Ready to Accelerate Growth?",
+    ctaHeading: "Build a stronger pipeline. Drive long-term value.",
+    ctaBody: "We help corporate development teams find the right opportunities, build strategic relationships, and drive meaningful growth.",
+    ctaImageUrl: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80",
   },
   {
     slug: "current-business-owners",
@@ -460,38 +737,87 @@ export const buyerPages: BuyerPageContent[] = [
     navLabel: "Current Business Owners",
     meta: {
       path: "/who-we-serve/current-business-owners",
-      title: "Acquisition Deal Flow for Business Owners | OutSearched",
+      title: "Advisory for Business Owners | OutSearched",
       description:
-        "OutSearched delivers proprietary deal flow to business owners growing by acquisition through direct-to-owner outreach to competitors, adjacents, and bolt-ons.",
+        "OutSearched helps business owners grow, optimize, or prepare for exit—with strategic advisory, M&A support, and hands-on execution.",
     },
-    eyebrow: "Who We Serve / Current Business Owners",
-    h1: "Acquisitions for operators growing by acquisition",
-    lead:
-      "Turn operating knowledge into a proprietary acquisition pipeline while your leadership team stays focused on the business.",
-    problemTitle: "You have the operating thesis. You do not have the time to run acquisition sourcing",
-    problemBody:
-      "Business owners know the market, competitors, and adjacencies, but sourcing requires a dedicated daily operating rhythm.",
-    problemPoints: [
-      { title: "You are already running the company", body: "The sourcing motion cannot distract from customers, employees, and operations." },
-      { title: "Brokered deals are often too late", body: "The best strategic targets may never hire a banker." },
-      { title: "Approaching competitors requires care", body: "Messaging and confidentiality matter when the buyer is already in the market." },
+    eyebrow: "Current Business Owners",
+    heroTitle: "You've built the business. Let's build what's next.",
+    heroGoldLine: "Let's build what's next.",
+    lead: "We help business owners grow, optimize, or prepare for exit—so you can maximize value and create lasting impact.",
+    heroImageUrl: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80",
+    trustLabel: "Trusted by Business Owners",
+    trustLogos: ["Parker", "Best Western", "Tate & Lyle", "Mac Tools", "Caliber Collision"],
+    whatWeDoHeading: "End-to-end support for where you are—and where you want to go.",
+    whatWeDoBody: "We act as your extended team—bringing clarity, strategy, and execution to help you grow, streamline operations, and achieve your personal and financial goals.",
+    featureCards: [
+      { icon: "BarChart2", title: "Strategic Growth", body: "Identify opportunities and build a clear plan to grow revenue and market share." },
+      { icon: "Settings", title: "Operations Optimization", body: "Streamline processes, improve margins, and increase efficiency across your business." },
+      { icon: "TrendingUp", title: "Financial Performance", body: "Enhance profitability, cash flow, and KPI tracking for better decision-making." },
+      { icon: "FileText", title: "Exit Planning", body: "Prepare your business for a successful sale or transition on your terms." },
+      { icon: "Handshake", title: "M&A Advisory", body: "Evaluate opportunities, negotiate deals, and maximize value in buy or sell-side deals." },
     ],
-    targetTitle: "Acquisition targets that make sense for the business you already operate",
-    targets: [
-      { title: "Competitor acquisitions", body: "Operators that strengthen market position or route density." },
-      { title: "Adjacent businesses", body: "Companies that add service lines, customers, or operational leverage." },
-      { title: "Supplier or vendor targets", body: "Targets that improve margin, control, or customer experience." },
+    builtForEyebrow: "Built for Business Owners",
+    builtForHeading: "Why owners partner with us.",
+    builtForBody: "We bring a founder's mindset, operator experience, and investor perspective to every engagement.",
+    builtForChecklist: [
+      "Practical, owner-focused approach",
+      "Confidential and trusted partnership",
+      "Objective, data-driven insights",
+      "Access to capital and strategic buyers",
+      "Aligned with your long-term vision",
     ],
-    modelTitle: "A corporate development function without building one",
-    models: [
-      { title: "Market map", body: "Translate your operating thesis into an actionable target universe." },
-      { title: "Qualified introductions", body: "Bring forward conversations once owner fit and intent are validated." },
+    vsLeft: {
+      title: "Versus Doing It Alone",
+      items: ["Limited perspective", "Resource constraints", "Emotional decision-making", "Slower progress", "Missed opportunities"],
+    },
+    vsRight: {
+      title: "Versus Traditional Advisors",
+      items: ["More responsive & agile", "Hands-on execution", "Flexible engagement", "Transparent communication", "Outcome-driven focus"],
+    },
+    engagementEyebrow: "Flexible Engagement Models",
+    engagementHeading: "Support that fits your business. Your goals.",
+    engagementCards: [
+      { icon: "UserRound", title: "Fractional Leadership", body: "Senior-level guidance without the full-time commitment." },
+      { icon: "FileText", title: "Project-Based Engagements", body: "Focused support for specific initiatives and challenges." },
+      { icon: "TrendingUp", title: "Growth Programs", body: "Structured plans to scale and improve value." },
+      { icon: "ClipboardCheck", title: "Exit Readiness", body: "Build value and prepare for a smooth transition." },
+      { icon: "Handshake", title: "M&A Transactions", body: "End-to-end advisory on buying or selling a business." },
     ],
-    fit: ["Operators pursuing roll-ups", "Business owners with acquisition capital", "Teams that need sourcing without distraction"],
+    engagementBonus: {
+      icon: "UserRound",
+      title: "Your business. Your legacy. Let's build what's next.",
+      body: "Strategy. Execution. Results.",
+    },
+    provenImpactHeading: "Real results. Stronger businesses. Higher value.",
+    provenImpactBody: "",
+    stats: [
+      { value: "$500M+", label: "Transaction value advised on", detail: "Across multiple industries.", icon: "Flag" },
+      { value: "52x", label: "Meetings generated", detail: "Average increase in qualified meetings within 90 days.", icon: "BarChart2" },
+      { value: "30+", label: "Industries served", detail: "Deep experience across a wide range of sectors.", icon: "Users" },
+      { value: "20%+", label: "Value improvement", detail: "Average EBITDA improvement across portfolio companies.", icon: "TrendingUp" },
+    ],
+    approachEyebrow: "Our Approach",
+    approachItems: [
+      "Understand your goals and options",
+      "Analyze opportunities and risks",
+      "Build a clear, actionable plan",
+      "Execute with precision and urgency",
+      "Deliver measurable results",
+    ],
+    approachImageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80",
+    approachQuote: "Built by You. Built for What's Next.",
     faq: [
-      { question: "Can you approach competitors discreetly?", answer: "Yes. We design outreach to protect confidentiality and avoid unnecessary market noise." },
-      { question: "Can you source outside our current industry?", answer: "Yes, if the adjacent thesis is clear enough to define a qualified opportunity." },
+      { question: "How can you help my business grow?", answer: "We help identify growth opportunities, build strategic plans, optimize operations, and execute initiatives that drive revenue, margin, and market share improvement." },
+      { question: "What industries do you work with?", answer: "We work across a broad range of industries in the lower middle market. Our approach adapts to your specific sector, competitive dynamics, and growth stage." },
+      { question: "Do you only work with businesses looking to sell?", answer: "No. We support owners at every stage—whether you want to grow, optimize, prepare for exit, or explore acquisitions. The engagement is shaped around your goals." },
+      { question: "How do you charge for your services?", answer: "We offer flexible engagement models including retainer-based advisory, project-based support, and success-based structures. We discuss the right fit during our initial call." },
+      { question: "How do we get started?", answer: "Book a strategy call. We'll discuss where your business is today, where you want to go, and how OutSearched can help you get there." },
     ],
+    ctaEyebrow: "Ready for What's Next?",
+    ctaHeading: "Let's create your next chapter of growth and success.",
+    ctaBody: "Whether you want to grow, optimize, or exit, we'll help you make the right moves with confidence.",
+    ctaImageUrl: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=900&q=80",
   },
   {
     slug: "individual-buyers",
@@ -503,34 +829,81 @@ export const buyerPages: BuyerPageContent[] = [
       description:
         "OutSearched delivers proprietary deal flow to individual buyers through direct-to-owner outreach so you reach business owners before any broker process begins.",
     },
-    eyebrow: "Who We Serve / Individual Buyers",
-    h1: "For select, well-capitalized individual buyers searching for one business to own",
-    lead:
-      "Move beyond broker listings and build a pipeline of owner conversations with businesses that match your capital, skill set, and search focus.",
-    problemTitle: "The right business is rarely sitting in a listing feed",
-    problemBody:
-      "Individual buyers need credibility, focus, and consistent outreach to be taken seriously by owners.",
-    problemPoints: [
-      { title: "Brokered deals are crowded", body: "You are competing against funded buyers with faster certainty and deeper teams." },
-      { title: "Seller credibility matters", body: "Owners need confidence that you can close and steward the business." },
-      { title: "Search has to be narrow", body: "A broad hunt creates weak messaging and low owner response." },
+    eyebrow: "Individual Buyers",
+    heroTitle: "Build stronger pipelines. Back better businesses. Drive lasting value.",
+    heroGoldLine: "Drive lasting value.",
+    lead: "We partner with lower middle-market private equity firms to source proprietary deals, engage management teams, and build value creation plans that drive results.",
+    heroImageUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+    trustLabel: "Trusted by PE Firms",
+    trustLogos: ["Wind Point Partners", "BainCapital", "Genstar", "AKKR", "LLR Partners"],
+    whatWeDoHeading: "Lower middle-market focus. Institutional execution.",
+    whatWeDoBody: "We act as an extension of your investment team—sourcing opportunities, running outreach, and delivering actionable intelligence that feeds your deal funnel and strengthens your thesis.",
+    featureCards: [
+      { icon: "Settings", title: "Deal Sourcing", body: "Proprietary sourcing across sectors and channels to surface high-quality opportunities." },
+      { icon: "Users", title: "Management Outreach & Engagement", body: "Connect with management teams and build relationships that create access." },
+      { icon: "BarChart2", title: "Market & Company Intelligence", body: "Deep research and insights to support smarter investment decisions." },
+      { icon: "TrendingUp", title: "Value Creation Support", body: "Operational insights and initiatives to accelerate growth and margin improvement." },
+      { icon: "Handshake", title: "Transaction Support", body: "From diligence to close—we help you stay focused and move efficiently." },
     ],
-    targetTitle: "Businesses that fit the buyer, not just the market",
-    targets: [
-      { title: "Owner-operated companies", body: "Businesses where a transition path is plausible." },
-      { title: "Capital-fit opportunities", body: "Targets sized to the buyer's available capital and debt capacity." },
-      { title: "Succession-driven owners", body: "Owners who may value continuity before a sale process." },
+    builtForEyebrow: "Built for Individual Buyers",
+    builtForHeading: "We think like investors. We execute like operators.",
+    builtForBody: "Our team combines investment acumen with BD execution to deliver differentiated outcomes.",
+    builtForChecklist: [
+      "Deep LMM ecosystem and relationships",
+      "Thematic, sector, and platform expertise",
+      "Proprietary outreach and data",
+      "Aligned with your investment strategy",
+      "Built for long-term partnerships",
     ],
-    modelTitle: "A disciplined search engine for one acquisition",
-    models: [
-      { title: "Buyer positioning", body: "Clarify why an owner should take the conversation seriously." },
-      { title: "Direct outreach", body: "Build and run a focused campaign against a defined target universe." },
+    vsLeft: {
+      title: "Versus Doing It In-House",
+      items: ["No recruiting delays", "Lower total cost", "Immediate bandwidth", "Scalable on demand", "Focus your internal team"],
+    },
+    vsRight: {
+      title: "Versus Traditional Sourcers",
+      items: ["Work as part of your team", "More strategic, less transactional", "Aligned with your thesis", "Higher-quality opportunities", "Built for long-term wins"],
+    },
+    engagementEyebrow: "Choose Your Engagement",
+    engagementHeading: "Flexible engagement. Aligned with your investment strategy.",
+    engagementCards: [
+      { icon: "Search", title: "Platform / Thesis Sourcing", body: "Ongoing sourcing aligned to your sector focus and investment criteria." },
+      { icon: "Users", title: "Add-On Opportunities", body: "Targeted sourcing for add-on acquisitions and bolt-on opportunities." },
+      { icon: "Handshake", title: "Strategic Partner Engagement", body: "End-to-end BD support across the investment lifecycle." },
     ],
-    fit: ["Well-capitalized individual buyers", "ETA buyers with a clear mandate", "Searchers who can act when a target fits"],
+    engagementBonus: {
+      icon: "TrendingUp",
+      title: "Your success is our mandate.",
+      body: "We are committed to helping you build stronger portfolios and drive exceptional returns.",
+    },
+    provenImpactHeading: "Results that move the needle.",
+    provenImpactBody: "We deliver measurable impact for PE firms focused on the lower middle market.",
+    stats: [
+      { value: "$500M+", label: "Pipeline generated", detail: "Across multiple sectors and geographies.", icon: "Flag" },
+      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days.", icon: "BarChart2" },
+      { value: "60+", label: "Active campaigns", detail: "Multi-channel outreach that fuels your deal funnel consistently.", icon: "Users" },
+      { value: "Proprietary Edge", label: "", detail: "Deep relationships and proprietary intelligence you won't find in a database.", icon: "TrendingUp" },
+    ],
+    approachEyebrow: "Our Approach",
+    approachItems: [
+      "Understand your thesis and criteria",
+      "Map the market and identify targets",
+      "Engage management and build relationships",
+      "Qualify opportunities and deliver insights",
+      "Support diligence and drive to close",
+    ],
+    approachImageUrl: "https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?auto=format&fit=crop&w=900&q=80",
+    approachQuote: "Focus. Execute. Create Value.",
     faq: [
-      { question: "Do you work with all individual buyers?", answer: "No. Fit depends on capital, focus, and readiness to move quickly." },
-      { question: "Can you help sharpen the buyer story?", answer: "Yes. Positioning is part of making owner outreach credible." },
+      { question: "How is your LMM PE sourcing different?", answer: "We combine proprietary outreach, deep LMM relationships, and institutional-grade research to deliver differentiated deal flow. Our team acts as an extension of yours—aligned with your thesis and focused on opportunities you won't find through traditional channels." },
+      { question: "What sectors and geographies do you cover?", answer: "We cover a broad range of sectors across the lower middle market, with particular depth in business services, healthcare services, industrial, and technology-enabled services. Geographically, we focus on North America." },
+      { question: "How do you qualify opportunities?", answer: "Every opportunity goes through a structured qualification process that evaluates strategic fit, financial profile, management quality, and transaction readiness against your specific investment criteria." },
+      { question: "Can you support our existing portfolio companies?", answer: "Yes. We run targeted add-on sourcing campaigns for portfolio companies, helping identify and engage bolt-on acquisition targets that strengthen your existing platforms." },
+      { question: "How do we get started?", answer: "Book a strategy call. We'll discuss your thesis, current sourcing approach, and where OutSearched can add the most value. From there, we define the mandate and launch outreach." },
     ],
+    ctaEyebrow: "Ready to Build?",
+    ctaHeading: "Let's build your next great investment.",
+    ctaBody: "We'll help you source better deals, evaluate with confidence, and create value that lasts.",
+    ctaImageUrl: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80",
   },
 ];
 
@@ -574,19 +947,24 @@ export const servicePages: ServicePageContent[] = [
       title: "Versus Agencies",
       items: ["We work under your brand", "Strategic, not just tactical", "Aligned with your goals", "Built for long-term wins"],
     },
+    engagementEyebrow: "Choose Your Model",
     chooseModelHeading: "Flexible engagement. Real results. Your choice.",
+    engagementCards: [
+      { icon: "Clock", title: "Fractional Business Development", body: "Part-time support with big-time impact. Perfect for lean teams or new initiatives.", link: "/services/fractional-business-development" },
+      { icon: "Handshake", title: "Buy-Side M&A Advisory", body: "Dedicated BD support for advisors focused on middle-market and higher-value deals.", link: "/services/buy-side-ma-advisory" },
+      { icon: "Zap", title: "AI Implementation", body: "End-to-end BD execution. We build, run, and optimize your pipeline.", link: "/services/ai-implementation" },
+    ],
     provenImpactHeading: "Real impact. Real results.",
     provenImpactBody: "We help dealmakers grow their pipeline, their brand, and their bottom line.",
     serviceStats: [
-      { value: "$500M+", label: "Pipeline generated", detail: "Across multiple client engagements over the past 24 months." },
-      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days." },
-      { value: "+60", label: "Active BD campaigns", detail: "Multi-channel outreach that fills your funnel consistently." },
+      { value: "$500M+", label: "Pipeline generated", detail: "Across multiple client engagements over the past 24 months.", icon: "Flag" },
+      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days.", icon: "BarChart2" },
+      { value: "+60", label: "Active BD campaigns at any given time", detail: "Multi-channel outreach that fills your funnel consistently.", icon: "Users" },
     ],
     setupTitle: "Typical Setup",
     setup: ["Works like an internal team member", "Follows your process", "Drives your results"],
     setupQuote: "Your team. Our expertise. Shared success.",
-    proofImageUrl:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80",
+    proofImageUrl: "/assets/services/internal-bd-proof.webp",
     faq: [
       {
         question: "Who manages the rep?",
@@ -603,10 +981,8 @@ export const servicePages: ServicePageContent[] = [
     ctaHeading: "Let's build your pipeline together.",
     ctaBody:
       "A stronger pipeline starts here. We'll build your outreach engine so you can focus on what you do best—closing deals and leading your firm.",
-    heroImageUrl:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
-    ctaImageUrl:
-      "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=900&q=80",
+    heroImageUrl: "/assets/services/internal-bd-hero.webp",
+    ctaImageUrl: "/assets/services/internal-bd-cta.webp",
   },
   {
     slug: "fractional-business-development",
@@ -647,14 +1023,20 @@ export const servicePages: ServicePageContent[] = [
       title: "Versus Agencies",
       items: ["Works under your brand", "More strategic, not just tactical", "Aligned with your goals", "Built for long-term wins"],
     },
+    engagementEyebrow: "Choose Your Model",
     chooseModelHeading: "Flexible engagement. Real results. Your choice.",
+    engagementCards: [
+      { icon: "UserRound", title: "Internal Business Development", body: "A dedicated BD seat that works like part of your internal team.", link: "/services/internal-business-development" },
+      { icon: "Handshake", title: "Buy-Side M&A Advisory", body: "Dedicated BD support for advisors focused on middle-market and higher-value deals.", link: "/services/buy-side-ma-advisory" },
+      { icon: "Zap", title: "AI Implementation", body: "End-to-end BD execution. We build, run, and optimize your pipeline.", link: "/services/ai-implementation" },
+    ],
     provenImpactHeading: "Fractional. Focused. Measurable.",
     provenImpactBody:
       "We deliver the same outcomes you expect from a full-time BD hire—without the overhead or long ramp.",
     serviceStats: [
-      { value: "$500M+", label: "Pipeline generated", detail: "Across multiple client engagements over the past 24 months." },
-      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days." },
-      { value: "+60", label: "Active BD campaigns", detail: "Multi-channel outreach that fills your funnel consistently." },
+      { value: "$500M+", label: "Pipeline generated", detail: "Across multiple client engagements over the past 24 months.", icon: "Flag" },
+      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days.", icon: "BarChart2" },
+      { value: "+60", label: "Active BD campaigns at any given time", detail: "Multi-channel outreach that fills your funnel consistently.", icon: "Users" },
     ],
     setupTitle: "Typical Setup",
     setup: [
@@ -738,13 +1120,24 @@ export const servicePages: ServicePageContent[] = [
       title: "Versus Traditional Advisors",
       items: ["Generic mandates", "High fees, misaligned", "Less hands-on execution", "Slower timelines", "Less flexible engagement"],
     },
+    engagementEyebrow: "Choose Your Engagement",
     chooseModelHeading: "Flexible engagement. Aligned with your investment strategy.",
+    engagementCards: [
+      { icon: "Search", title: "Deal Sourcing Partnership", body: "We find and qualify deals that match your investment thesis." },
+      { icon: "Users", title: "Diligence Partner", body: "We run deep diligence so you can make confident investment decisions." },
+      { icon: "Handshake", title: "End-to-End Buy-Side Advisory", body: "We manage the entire buy-side process from sourcing to closing." },
+    ],
+    engagementBonus: {
+      icon: "TrendingUp",
+      title: "Value Creation Support",
+      body: "Post-acquisition integration planning and execution support to maximize returns.",
+    },
     provenImpactHeading: "Results that drive stronger portfolios.",
     provenImpactBody: "We help buyers build better businesses through better decisions.",
     serviceStats: [
-      { value: "$500M+", label: "Pipeline evaluated", detail: "Across multiple industries and geographies." },
-      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days." },
-      { value: "+60", label: "Active mandates", detail: "Across search, diligence, and buy-side advisory engagements." },
+      { value: "$500M+", label: "Pipeline evaluated", detail: "Across multiple industries and geographies.", icon: "Flag" },
+      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days.", icon: "BarChart2" },
+      { value: "+60", label: "Active mandates", detail: "Across search, diligence, and buy-side advisory engagements.", icon: "Users" },
     ],
     setupTitle: "Our Approach",
     setup: [
@@ -827,14 +1220,25 @@ export const servicePages: ServicePageContent[] = [
       title: "Versus Generic Solutions",
       items: ["Not built for dealmakers", "One-size-fits-all approach", "Limited customization", "Poor adoption", "Short-term impact"],
     },
+    engagementEyebrow: "Choose Your Engagement",
     chooseModelHeading: "Flexible engagement. Scalable solutions. Your choice.",
+    engagementCards: [
+      { icon: "ClipboardCheck", title: "AI Readiness Assessment", body: "Evaluate opportunities, identify high-impact use cases, and build your AI roadmap." },
+      { icon: "Brain", title: "Custom AI Implementation", body: "We design, build, and integrate AI solutions tailored to your goals and systems." },
+      { icon: "Settings", title: "Ongoing Optimization & Support", body: "We monitor, optimize, and evolve your AI systems for continuous improvement." },
+    ],
+    engagementBonus: {
+      icon: "Rocket",
+      title: "From strategy to execution—and beyond.",
+      body: "We don't just implement AI. We make it work for your business.",
+    },
     provenImpactHeading: "AI that delivers measurable results.",
     provenImpactBody: "We help firms unlock efficiency, reduce costs, and drive better outcomes with AI.",
     serviceStats: [
-      { value: "$500M+", label: "Pipeline influenced", detail: "Across multiple clients and engagements." },
-      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days." },
-      { value: "60+", label: "AI automations deployed", detail: "From research to reporting and outreach." },
-      { value: "30–70%", label: "Time saved", detail: "On repetitive tasks across client workflows." },
+      { value: "$500M+", label: "Pipeline influenced", detail: "Across multiple clients and engagements.", icon: "Users" },
+      { value: "52x", label: "Meetings set", detail: "Average increase in qualified meetings within the first 90 days.", icon: "BarChart2" },
+      { value: "60+", label: "AI automations deployed", detail: "From research to reporting and outreach.", icon: "Clock" },
+      { value: "30–70%", label: "Time saved", detail: "On repetitive tasks across client workflows.", icon: "TrendingUp" },
     ],
     setupTitle: "Our Approach",
     setup: [

@@ -5,19 +5,24 @@ import {
   BarChart2,
   Brain,
   Check,
+  ClipboardCheck,
   Clock,
   FileText,
+  Flag,
   Globe,
   Handshake,
   Link2,
   MessageSquare,
   Minus,
   Plus,
+  Rocket,
   Search,
+  Settings,
   ShieldCheck,
   SlidersHorizontal,
   TrendingUp,
   UserRound,
+  Users,
   Zap,
   type LucideIcon,
 } from "lucide-react";
@@ -29,7 +34,7 @@ import { cn } from "@/lib/utils";
 
 const trustedLogos = ["Wintrust", "Kroll", "Houlihan Lokey", "Lazard"];
 
-const featureIconMap: Record<string, LucideIcon> = {
+const iconMap: Record<string, LucideIcon> = {
   UserRound,
   BarChart2,
   Globe,
@@ -44,13 +49,11 @@ const featureIconMap: Record<string, LucideIcon> = {
   Brain,
   MessageSquare,
   Link2,
-};
-
-const serviceIconMap: Record<string, LucideIcon> = {
-  "internal-business-development": UserRound,
-  "fractional-business-development": Clock,
-  "buy-side-ma-advisory": Handshake,
-  "ai-implementation": Zap,
+  Flag,
+  Users,
+  ClipboardCheck,
+  Settings,
+  Rocket,
 };
 
 function HeroTitle({ title, goldLine }: { title: string; goldLine: string }) {
@@ -72,7 +75,7 @@ function HeroTitle({ title, goldLine }: { title: string; goldLine: string }) {
 }
 
 function FeatureCardItem({ card }: { card: ServiceFeatureCard }) {
-  const Icon = featureIconMap[card.icon] ?? Search;
+  const Icon = iconMap[card.icon] ?? Search;
   return (
     <div className="flex flex-col gap-4 rounded-lg border border-navy/10 bg-white p-5">
       <span className="grid size-10 place-items-center rounded-full border border-gold/40 bg-gold/8 text-goldDark">
@@ -117,7 +120,6 @@ export default function ServicePage() {
 
   if (!page) return <Navigate to="/services" replace />;
 
-  const otherServices = servicePages.filter((s) => s.slug !== page.slug);
   const statsColClass =
     page.serviceStats.length === 4 ? "grid-cols-2 lg:grid-cols-4" : "grid-cols-3";
 
@@ -259,48 +261,76 @@ export default function ServicePage() {
         </div>
       </section>
 
-      {/* ── CHOOSE YOUR MODEL ──────────────────────────────── */}
+      {/* ── CHOOSE YOUR MODEL / ENGAGEMENT ─────────────────── */}
       <section className="bg-ivory py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.65fr_1.35fr] lg:items-start">
             <div>
-              <p className="label text-goldDark">Choose Your Model</p>
+              <p className="label text-goldDark">{page.engagementEyebrow}</p>
               <h2 className="mt-4 font-heading text-3xl leading-tight text-navy md:text-4xl text-balance">
                 {page.chooseModelHeading}
               </h2>
             </div>
             <div className="grid gap-4 sm:grid-cols-3">
-              {otherServices.map((service) => {
-                const Icon = serviceIconMap[service.slug] ?? ArrowRight;
-                return (
-                  <Link
-                    key={service.slug}
-                    to={service.path}
-                    className="group flex flex-col gap-4 rounded-lg border border-navy/10 bg-white p-5 transition hover:-translate-y-0.5 hover:border-gold/50 hover:shadow-md"
-                  >
+              {page.engagementCards.map((card) => {
+                const Icon = iconMap[card.icon] ?? ArrowRight;
+                const cardInner = (
+                  <>
                     <span className="grid size-10 place-items-center rounded-full border border-gold/40 bg-gold/8 text-goldDark">
                       <Icon className="size-5" aria-hidden="true" />
                     </span>
                     <div className="flex-1">
-                      <h3 className="font-heading text-lg leading-snug text-navy">
-                        {service.navLabel}
-                      </h3>
-                      <p className="mt-2 text-xs leading-5 text-navy/55 line-clamp-3">
-                        {service.lead}
-                      </p>
+                      <h3 className="font-heading text-lg leading-snug text-navy">{card.title}</h3>
+                      <p className="mt-2 text-xs leading-5 text-navy/55">{card.body}</p>
                     </div>
-                    <span className="inline-flex items-center gap-1 text-xs font-bold text-goldDark">
-                      Learn more{" "}
-                      <ArrowRight
-                        className="size-3 transition group-hover:translate-x-0.5"
-                        aria-hidden="true"
-                      />
-                    </span>
+                    {card.link && (
+                      <span className="inline-flex items-center gap-1 text-xs font-bold text-goldDark">
+                        Learn more{" "}
+                        <ArrowRight
+                          className="size-3 transition group-hover:translate-x-0.5"
+                          aria-hidden="true"
+                        />
+                      </span>
+                    )}
+                  </>
+                );
+                return card.link ? (
+                  <Link
+                    key={card.title}
+                    to={card.link}
+                    className="group flex flex-col gap-4 rounded-lg border border-navy/10 bg-white p-5 transition hover:-translate-y-0.5 hover:border-gold/50 hover:shadow-md"
+                  >
+                    {cardInner}
                   </Link>
+                ) : (
+                  <div
+                    key={card.title}
+                    className="group flex flex-col gap-4 rounded-lg border border-navy/10 bg-white p-5"
+                  >
+                    {cardInner}
+                  </div>
                 );
               })}
             </div>
           </div>
+
+          {page.engagementBonus && (() => {
+            const BonusIcon = iconMap[page.engagementBonus.icon] ?? TrendingUp;
+            return (
+              <div className="mt-6 flex items-start gap-5 rounded-lg border border-gold/30 bg-parchment p-5 lg:ml-[35%]">
+                <span className="grid size-10 shrink-0 place-items-center rounded-full border border-gold/40 bg-gold/10 text-goldDark">
+                  <BonusIcon className="size-5" aria-hidden="true" />
+                </span>
+                <div className="flex-1">
+                  <p className="font-heading text-lg leading-snug text-navy">
+                    {page.engagementBonus.title}
+                  </p>
+                  <p className="mt-1 text-sm leading-6 text-navy/65">{page.engagementBonus.body}</p>
+                </div>
+                <ArrowRight className="mt-2 size-4 shrink-0 text-goldDark" aria-hidden="true" />
+              </div>
+            );
+          })()}
         </div>
       </section>
 
@@ -316,18 +346,26 @@ export default function ServicePage() {
               <p className="mt-4 text-base leading-7 text-ivory/58">{page.provenImpactBody}</p>
             </div>
             <div className={cn("grid gap-4", statsColClass)}>
-              {page.serviceStats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="flex flex-col rounded-lg border border-white/10 bg-white/5 p-5"
-                >
-                  <p className="font-heading text-3xl text-gold md:text-4xl">{stat.value}</p>
-                  <p className="label mt-3 text-ivory/55">{stat.label}</p>
-                  {stat.detail && (
-                    <p className="mt-2 text-xs leading-5 text-ivory/42">{stat.detail}</p>
-                  )}
-                </div>
-              ))}
+              {page.serviceStats.map((stat) => {
+                const StatIcon = stat.icon ? iconMap[stat.icon] : null;
+                return (
+                  <div
+                    key={stat.label}
+                    className="flex flex-col rounded-lg border border-white/10 bg-white/5 p-5"
+                  >
+                    {StatIcon && (
+                      <span className="mb-4 grid size-10 place-items-center rounded-full border border-gold/40 bg-gold/10 text-gold">
+                        <StatIcon className="size-5" aria-hidden="true" />
+                      </span>
+                    )}
+                    <p className="font-heading text-3xl text-gold md:text-4xl">{stat.value}</p>
+                    <p className="label mt-3 text-ivory/55">{stat.label}</p>
+                    {stat.detail && (
+                      <p className="mt-2 text-xs leading-5 text-ivory/42">{stat.detail}</p>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
 
